@@ -1,14 +1,14 @@
 {
   "expo": {
-    "name": "PimBackHotel",
-    "slug": "PimBackHotel",
+    "name": "PimBack Hotel",
+    "slug": "PimBack Hotel",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/logo.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#f3f3f3"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
