@@ -2,14 +2,15 @@ import { StyleSheet } from "react-native";
 import { primary } from "../colors";
 
 export const shadow = StyleSheet.create({
-  shadow20: {
+  shadow10: {
     shadowColor: primary.ChineseBlack,
     shadowOffset: {
       width: 0,
-      height: 10,
+      height: 5,
     },
-    shadowOpacity: 0.51,
-    shadowRadius: 13.16,
-    elevation: 20,
+    shadowOpacity: 0.34,
+    shadowRadius: 6.27,
+    
+    elevation: 10,
   }
 })
