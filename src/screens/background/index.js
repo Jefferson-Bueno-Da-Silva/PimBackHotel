@@ -19,7 +19,6 @@ export const Background = ({ children }) => {
       <StatusBar
         barStyle="dark-content"
         backgroundColor="transparent"
-        showHideTransition
       />
       <View style={styles.plane1}>
         <Plane1 />

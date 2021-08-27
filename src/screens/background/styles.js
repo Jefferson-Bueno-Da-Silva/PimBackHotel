@@ -32,5 +32,5 @@ export const styles = StyleSheet.create({
     right: '32.55%',
     top: '81.28%',
     bottom: '14.27%',
-  }
+  },
 })
