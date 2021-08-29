@@ -33,6 +33,5 @@ export const styles = StyleSheet.create({
   },
   bottom: {
     flex: 1,
-    backgroundColor: 'blue',
   },
 });
