@@ -3,8 +3,8 @@ import { View } from 'react-native';
 
 import { styles } from './styles';
 
-const Avatar = () => {
-  return <View />;
+const CompName = () => {
+  return <View style={styles.container} />;
 }
 
-export default Avatar;
+export default CompName;
