@@ -11,7 +11,7 @@ export const sizeTypeProp = {
 
 /**
  * Retorna o Avatar
- * @param {'small' | 'medium'} props.sizeType
+ * @param {'small' | 'medium'} sizeType
  * @returns
  */
 const Avatar = ({ sizeType }) => {

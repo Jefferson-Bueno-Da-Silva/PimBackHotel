@@ -8,7 +8,6 @@ export const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   profile: {
-    resizeMode: 'center',
     borderRadius: 50,
     borderColor: primary.ChineseBlack,
     borderWidth: 1,
