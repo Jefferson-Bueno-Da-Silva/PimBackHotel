@@ -1,12 +1,23 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { View, Image, Text } from 'react-native';
-import Avatar from '../Avatar';
-import { logo } from '../../assets';
 
+// components
+import Avatar from '../Avatar';
+import Input from '../Input';
+
+// Styles
 import { styles } from './styles';
 import { fonts } from '../../styles/fonts';
 
-const Header = ({children}) => {
+// Assets
+import { logo } from '../../assets';
+
+const Header = () => {
+  const [value, setValue] = useState();
+  const onPressSearch = () => {
+    console.log('Search')
+    console.log(value);
+  }
   return (
     <View style={styles.container}>
       <View style={styles.top}>
@@ -22,7 +33,7 @@ const Header = ({children}) => {
         </Text>
       </View>
       <View style={styles.bottom} >
-
+        <Input value={value} setValue={setValue} onPress={onPressSearch} />
       </View>
     </View>
   );
