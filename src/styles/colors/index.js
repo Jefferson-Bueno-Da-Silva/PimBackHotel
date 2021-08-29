@@ -5,4 +5,5 @@ export const primary = {
   CadetGrey: "#9CA3AF",
   DarkCharcoal: "#333333",
   ChineseBlack: "#121212",
+  borderColor: '#BEC5D1',
 }
