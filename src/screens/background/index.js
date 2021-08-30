@@ -26,13 +26,13 @@ export const Background = ({ children }) => {
       <View style={styles.plane2}>
         <Plane2 />
       </View>
-      {children}
       <View style={styles.plane3}>
         <Plane3 />
       </View>
       <View style={styles.plane4}>
         <Plane4 />
       </View>
+      {children}
     </LinearGradient>
   )
 }

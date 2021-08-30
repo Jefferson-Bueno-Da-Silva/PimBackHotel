@@ -23,10 +23,10 @@ export default function App() {
   }
 
   return (
-    <Background>
-      <NavigationContainer>
+    <NavigationContainer theme={{colors: 'transparent'}}>
+      <Background>
         <Routes />
-      </NavigationContainer>
-    </Background>
+      </Background>
+    </NavigationContainer>
   )
 }
