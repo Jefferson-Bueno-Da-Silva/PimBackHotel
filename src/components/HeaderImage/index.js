@@ -1,10 +1,19 @@
-import React from 'react';
-import { View } from 'react-native';
+import React from 'react'
+import { ImageBackground, Text } from 'react-native'
 
-import { styles } from './styles';
+import { styles } from './styles'
 
-const HeaderImage = () => {
-  return <View style={styles.container} />;
+const HeaderImage = ({ imageUri, title }) => {
+  return (
+    <ImageBackground
+      source={{ uri: imageUri }}
+      style={styles.container}
+      imageStyle={styles.imageSource}
+      resizeMode="cover"
+    >
+      <Text style={styles.title}>{title}</Text>
+    </ImageBackground>
+  )
 }
 
-export default HeaderImage;
+export default HeaderImage
