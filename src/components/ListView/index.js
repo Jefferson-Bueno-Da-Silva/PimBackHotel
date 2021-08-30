@@ -1,0 +1,35 @@
+import React from 'react';
+import { Text, View, Image, TouchableOpacity } from 'react-native';
+
+import { Entypo } from '@expo/vector-icons';
+
+import { styles } from './styles';
+import { primary } from '../../styles/colors';
+
+const ListView = ({data}) => {
+  const { imagePick, RoomName, location } = data;
+  return (
+    <View style={styles.container}>
+      <Image source={{uri: imagePick}} style={styles.image} />
+
+      <View style={styles.dataContainer} >
+        <Text style={styles.title}>{RoomName}</Text>
+
+        <View style={styles.footerContainer}>
+          <View style={styles.locationContainer} >
+            <Entypo name="location-pin" size={15} color={primary.ChineseBlack} />
+            <Text style={styles.location}>{location}</Text>
+          </View>
+
+          <TouchableOpacity activeOpacity={.5} style={styles.button} >
+            <Text style={styles.buttonText}>Check</Text>
+          </TouchableOpacity>
+
+        </View>
+      </View>
+
+    </View>
+  );
+}
+
+export default ListView;
