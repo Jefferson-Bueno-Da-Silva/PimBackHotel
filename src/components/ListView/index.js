@@ -6,7 +6,7 @@ import { Entypo } from '@expo/vector-icons';
 import { styles } from './styles';
 import { primary } from '../../styles/colors';
 
-const ListView = ({data}) => {
+const ListView = ({data, onPress}) => {
   const { imagePick, RoomName, location } = data;
   return (
     <View style={styles.container}>
@@ -21,7 +21,7 @@ const ListView = ({data}) => {
             <Text style={styles.location}>{location}</Text>
           </View>
 
-          <TouchableOpacity activeOpacity={.5} style={styles.button} >
+          <TouchableOpacity activeOpacity={.5} style={styles.button} onPress={onPress} >
             <Text style={styles.buttonText}>Check</Text>
           </TouchableOpacity>
 
