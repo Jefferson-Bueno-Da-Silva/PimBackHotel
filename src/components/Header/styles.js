@@ -7,7 +7,7 @@ import { getStatusBarHeight } from 'react-native-iphone-x-helper';
 export const styles = StyleSheet.create({
   container: {
     width: '100%',
-    height: 272,
+    height: 260,
 
     paddingTop: getStatusBarHeight() - 16,
     borderBottomRightRadius: 20,
@@ -24,7 +24,6 @@ export const styles = StyleSheet.create({
   top:{
     flexDirection: "row",
     alignContent: 'center',
-    justifyContent: 'space-between',
     marginRight: 16,
   },
   middle: {

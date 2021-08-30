@@ -1,6 +1,5 @@
 import React from 'react'
 import { Image, View } from 'react-native'
-import { profile } from '../../assets'
 
 import { styles } from './styles'
 
@@ -14,11 +13,11 @@ export const sizeTypeProp = {
  * @param {'small' | 'medium'} sizeType
  * @returns
  */
-const Avatar = ({ sizeType }) => {
+const Avatar = ({ sizeType, profile }) => {
   return (
     <View style={styles.container}>
       <Image
-        source={profile}
+        source={{uri: profile}}
         style={[
           styles.profile,
           { height: sizeTypeProp[sizeType], width: sizeTypeProp[sizeType] },

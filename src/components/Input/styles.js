@@ -6,11 +6,12 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'row',
+    alignItems: 'center',
     justifyContent:  'space-between',
     borderColor: primary.borderColor,
     borderWidth: 1,
     borderRadius: 12,
-    padding: 16,
+    paddingHorizontal: 16,
     margin: 16,
     backgroundColor: primary.White,
     ...shadow.shadow3,

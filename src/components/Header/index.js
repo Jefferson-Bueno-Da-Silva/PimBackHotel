@@ -12,7 +12,7 @@ import { fonts } from '../../styles/fonts';
 // Assets
 import { logo } from '../../assets';
 
-const Header = () => {
+const Header = ({ uriProfile }) => {
   const [value, setValue] = useState();
   const onPressSearch = () => {
     console.log('Search')
@@ -22,7 +22,7 @@ const Header = () => {
     <View style={styles.container}>
       <View style={styles.top}>
         <Image source={logo} style={styles.logo} resizeMode='center'/>
-        <Avatar sizeType="small" />
+        <Avatar sizeType="small" profile={uriProfile} />
       </View>
       <View style={styles.middle} >
         <Text style={[fonts.captionBold]} >
