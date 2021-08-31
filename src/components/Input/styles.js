@@ -17,6 +17,7 @@ export const styles = StyleSheet.create({
     ...shadow.shadow8,
   },
   input: {
-    color: primary.ChineseBlack
+    color: primary.ChineseBlack,
+    width: '92%'
   },
 })

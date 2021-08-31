@@ -21,7 +21,7 @@ const Header = ({ uriProfile }) => {
   return (
     <View style={styles.container}>
       <View style={styles.top}>
-        <Image source={logo} style={styles.logo} resizeMode='center'/>
+        <Image source={logo} style={styles.logo} resizeMode='contain'/>
         <Avatar sizeType="small" profile={uriProfile} />
       </View>
       <View style={styles.middle} >

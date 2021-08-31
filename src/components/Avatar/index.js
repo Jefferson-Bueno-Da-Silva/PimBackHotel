@@ -1,5 +1,6 @@
 import React from 'react'
 import { Image, View } from 'react-native'
+import { shadow } from '../../styles/shadow'
 
 import { styles } from './styles'
 
@@ -16,13 +17,15 @@ export const sizeTypeProp = {
 const Avatar = ({ sizeType, profile }) => {
   return (
     <View style={styles.container}>
-      <Image
-        source={{uri: profile}}
-        style={[
-          styles.profile,
-          { height: sizeTypeProp[sizeType], width: sizeTypeProp[sizeType] },
-        ]}
-      />
+      <View style={{...shadow.shadow8, backgroundColor: 'transparent', borderRadius: 20}}>
+        <Image
+          source={{uri: profile}}
+          style={[
+            styles.profile,
+            { height: sizeTypeProp[sizeType], width: sizeTypeProp[sizeType] },
+          ]}
+        />
+      </View>
     </View>
   )
 }

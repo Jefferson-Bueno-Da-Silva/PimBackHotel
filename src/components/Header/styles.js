@@ -18,7 +18,6 @@ export const styles = StyleSheet.create({
   },
   logo:{
     width: 200,
-    marginTop: -8,
     marginLeft: 8
   },
   top:{
