@@ -1,3 +1,4 @@
+import { StatusBar } from 'expo-status-bar'
 import React from 'react'
 import { ImageBackground, Text } from 'react-native'
 
@@ -11,6 +12,7 @@ const HeaderImage = ({ imageUri, title }) => {
       imageStyle={styles.imageSource}
       resizeMode="cover"
     >
+      <StatusBar style='inverted'/>
       <Text style={styles.title}>{title}</Text>
     </ImageBackground>
   )

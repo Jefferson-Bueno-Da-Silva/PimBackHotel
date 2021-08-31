@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
     borderBottomLeftRadius: 20,
   },
   title: {
-    ...fonts.title,
+    ...fonts.subTitle,
     color: primary.White,
     marginHorizontal: 16,
   },
