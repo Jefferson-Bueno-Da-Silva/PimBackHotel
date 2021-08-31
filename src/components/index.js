@@ -3,3 +3,4 @@ export { default as Avatar } from './Avatar';
 export { default as Input } from './Input';
 export { default as ListView } from './ListView';
 export { default as HeaderImage } from './HeaderImage';
+export { default as LargeButton } from './LargeButton';
