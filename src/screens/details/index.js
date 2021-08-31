@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import { Text, View } from 'react-native'
 
 // components
 import { HeaderImage, LargeButton } from '../../components'
 import { Ionicons } from '@expo/vector-icons'
+import { useNavigation } from '@react-navigation/core'
 
 // styles
 import { styles } from './styles'
@@ -13,6 +14,10 @@ import { hotelData } from '../../utils/apiMock'
 import { fonts } from '../../styles/fonts'
 
 const Details = () => {
+  const navigation = useNavigation()
+  const moveToReserves = useCallback(()=> {
+    navigation.navigate('Reserve')
+  }, [])
   return (
     <View style={styles.container}>
       <HeaderImage
@@ -38,7 +43,7 @@ const Details = () => {
         </Text>
       </View>
       <View style={styles.buttonContainer}>
-        <LargeButton />
+        <LargeButton onPress={moveToReserves} />
       </View>
       
     </View>

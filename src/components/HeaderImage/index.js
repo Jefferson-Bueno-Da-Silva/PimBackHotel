@@ -12,7 +12,6 @@ const HeaderImage = ({ imageUri, title }) => {
       imageStyle={styles.imageSource}
       resizeMode="cover"
     >
-      <StatusBar style='inverted'/>
       <Text style={styles.title}>{title}</Text>
     </ImageBackground>
   )
