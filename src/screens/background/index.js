@@ -10,7 +10,7 @@ import Plane2 from '../../assets/planes/plane2.js'
 import Plane3 from '../../assets/planes/plane3.js'
 import Plane4 from '../../assets/planes/plane4.js'
 
-export const Background = ({ children }) => {
+const Background = ({ children }) => {
   return (
     <LinearGradient
       colors={[primary.AntiFlashWhite, primary.Lotion]}
@@ -36,3 +36,4 @@ export const Background = ({ children }) => {
     </LinearGradient>
   )
 }
+export default Background

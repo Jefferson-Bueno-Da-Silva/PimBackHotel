@@ -6,7 +6,7 @@ import {
   Poppins_600SemiBold,
 } from '@expo-google-fonts/poppins'
 import AppLoading from 'expo-app-loading'
-import { Background } from './src/screens/background'
+import { Background } from './src/screens'
 
 import { NavigationContainer } from '@react-navigation/native'
 import Routes from './src/routes/routes'

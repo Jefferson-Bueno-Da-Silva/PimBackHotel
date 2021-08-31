@@ -12,6 +12,5 @@ export const styles = StyleSheet.create({
     borderRadius: 50,
     borderColor: primary.ChineseBlack,
     borderWidth: 1,
-    ...shadow.shadow8
   },
 })
