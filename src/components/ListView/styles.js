@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 12,
     alignItems: 'center',
     justifyContent: 'space-between',
-    ...shadow.shadow10
+    ...shadow.shadow8
   },
   image: {
     width: 60,

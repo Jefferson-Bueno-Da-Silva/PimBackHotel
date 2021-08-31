@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
     alignItems: "flex-start",
     justifyContent: 'flex-end',
 
-    ...shadow.shadow10
+    ...shadow.shadow5
   },
   imageSource: {
     borderBottomRightRadius: 20,

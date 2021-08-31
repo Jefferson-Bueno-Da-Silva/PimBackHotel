@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 16,
     margin: 16,
     backgroundColor: primary.White,
-    ...shadow.shadow3,
+    ...shadow.shadow8,
   },
   input: {
     color: primary.ChineseBlack

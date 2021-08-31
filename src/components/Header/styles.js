@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
     borderBottomLeftRadius: 20,
     
     backgroundColor: primary.Lotion,
-    ...shadow.shadow10
+    ...shadow.shadow5
   },
   logo:{
     width: 200,
