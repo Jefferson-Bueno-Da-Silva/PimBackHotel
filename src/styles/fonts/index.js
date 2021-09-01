@@ -14,6 +14,10 @@ export const fonts = StyleSheet.create ({
     fontFamily: "Poppins_700Bold",
     fontSize: 16,
   },
+  captionSemiBold: {
+    fontFamily: "Poppins_600SemiBold",
+    fontSize: 16,
+  },
   captionRegular: {
     fontFamily: "Poppins_400Regular",
     fontSize: 16,

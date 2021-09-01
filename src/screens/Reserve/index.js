@@ -1,11 +1,11 @@
 import React from 'react';
 import { View } from 'react-native';
-import {HeaderStack} from '../../components';
+import { DatePicker } from '../../components';
 
 // import { styles } from './styles';
 
 const Reserve = () => {
-  return <View/>;
+  return <DatePicker/>;
 }
 
 export default Reserve;
