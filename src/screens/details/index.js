@@ -43,7 +43,7 @@ const Details = () => {
         </Text>
       </View>
       <View style={styles.buttonContainer}>
-        <LargeButton onPress={moveToReserves} />
+        <LargeButton onPress={moveToReserves} buttonText="Selecionar Quarto" />
       </View>
       
     </View>
