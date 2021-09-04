@@ -1,6 +1,7 @@
 import { StyleSheet } from "react-native";
 import { primary } from "../../styles/colors";
 import { fonts } from "../../styles/fonts";
+import { shadow } from "../../styles/shadow";
 
 export const styles = StyleSheet.create({
   container: {
@@ -9,6 +10,7 @@ export const styles = StyleSheet.create({
     marginHorizontal: 16,
     backgroundColor: primary.Lotion,
     borderRadius: 5,
+    ...shadow.shadow5
   },
   line: {
     height: 1,
