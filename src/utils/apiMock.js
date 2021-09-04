@@ -10,7 +10,7 @@ export const hotelData = [
       'https://cdn.panrotas.com.br/portal-panrotas-statics/media-files-cache/278526/f8e007f0e5e882a70317c2fb2a43ce7aapartamentoluxoview1/0,89,1280,764/670,400,0.31/0/default.jpg',
     RoomName: 'Ambrosia Hotel & Restaurant',
     location: 'kazi Deiry, Taiger Pass Chittagong',
-    Occupation: 1,
+    Occupation: 10,
     time: 5,
     price: 3500,
   },
