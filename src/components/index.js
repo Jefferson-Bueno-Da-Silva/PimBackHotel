@@ -6,3 +6,5 @@ export { default as HeaderImage } from './HeaderImage';
 export { default as LargeButton } from './LargeButton';
 export { default as HeaderStack } from './HeaderStack';
 export { default as DatePicker } from './DatePicker';
+export { default as Line } from './Line';
+export { default as Picker } from './Picker';
