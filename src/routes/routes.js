@@ -4,6 +4,8 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeStack from "./homeStack";
 import { primary } from "../styles/colors";
 import { shadow } from "../styles/shadow";
+import { TabBarOptionsHome } from "../components/TabBarOptions";
+import { View } from "react-native";
 
 const Tab = createBottomTabNavigator();
 
@@ -24,7 +26,7 @@ export default function Routes() {
         }
       }}
     >
-      <Tab.Screen name="HomeStack" component={HomeStack} />
+      <Tab.Screen name="HomeStack" component={HomeStack} options={TabBarOptionsHome} />
     </Tab.Navigator>
   );
 }
