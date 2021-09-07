@@ -17,6 +17,7 @@ const Home = () => {
       <FlatList
         data={hotelData}
         keyExtractor={(hotelData) => hotelData.id}
+        ListHeaderComponent={() => <View style={styles.space}/>}
         renderItem={({ item }) => <ListView data={item} onPress={navigateToDetails} />}
         style={styles.flatList}
       />

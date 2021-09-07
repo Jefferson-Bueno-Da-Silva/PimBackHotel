@@ -9,4 +9,7 @@ export const styles = StyleSheet.create({
   flatList: {
     backgroundColor: 'transparent'
   },
+  space: {
+    height: 8,
+  }
 })
