@@ -1,32 +1,30 @@
-import * as React from 'react'
+import React from "react";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import HomeStack from "./homeStack";
+import { primary } from "../styles/colors";
+import { shadow } from "../styles/shadow";
 
-import { Home, Details, Reserve, Finished } from '../screens'
-import { HeaderStack } from '../components'
+const Tab = createBottomTabNavigator();
 
-const Stack = createNativeStackNavigator()
-
-function Routes() {
+export default function Routes() {
   return (
-    <Stack.Navigator
-      screenOptions={{ headerShown: false }}
-      initialRouteName={'Home'}
+    <Tab.Navigator
+      screenOptions={{ 
+        headerShown: false, 
+        tabBarShowLabel: false,
+        tabBarStyle: {
+          height: 64,
+          borderWidth: 0,
+          borderColor: "transparent",
+          backgroundColor: primary.Lotion,
+          borderTopRightRadius: 20,
+          borderTopLeftRadius: 20,
+          ...shadow.shadow8
+        }
+      }}
     >
-      <Stack.Screen name="Home" component={Home} />
-      <Stack.Screen name="Details" component={Details} />
-      <Stack.Screen
-        options={{ headerShown: true, header: () => <HeaderStack text="Reservar" /> }}
-        name="Reserve"
-        component={Reserve}
-      />
-      <Stack.Screen
-        options={{ headerShown: true, header: () => <HeaderStack text="Finalizado" /> }}
-        name="Finished"
-        component={Finished}
-      />
-    </Stack.Navigator>
-  )
+      <Tab.Screen name="HomeStack" component={HomeStack} />
+    </Tab.Navigator>
+  );
 }
-
-export default Routes
