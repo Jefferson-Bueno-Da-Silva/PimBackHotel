@@ -4,8 +4,8 @@ import Svg, { Path } from "react-native-svg";
 export default function ConfirmSvg(props) {
   return (
     <Svg
-      width="240"
-      height="240"
+      width="200"
+      height="200"
       viewBox="0 0 240 240"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

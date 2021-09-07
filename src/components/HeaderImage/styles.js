@@ -6,7 +6,7 @@ import { shadow } from '../../styles/shadow';
 export const styles = StyleSheet.create({
   container: {
     width: '100%',
-    height: 340,
+    height: 300,
 
     alignItems: "flex-start",
     justifyContent: 'flex-end',

@@ -4,10 +4,9 @@ import { primary } from "../../styles/colors";
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'transparent'
   },
   location: {
-    width: '60%',
+    width: '50%',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between'
