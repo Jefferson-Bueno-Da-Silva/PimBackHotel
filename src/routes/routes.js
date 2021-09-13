@@ -2,10 +2,11 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import HomeStack from "./homeStack";
+import BookingStack from "./bookingStack";
+import { TabBarOptionsBooking, TabBarOptionsHome } from "../components/TabBarOptions";
+
 import { primary } from "../styles/colors";
 import { shadow } from "../styles/shadow";
-import { TabBarOptionsHome } from "../components/TabBarOptions";
-import { View } from "react-native";
 
 const Tab = createBottomTabNavigator();
 
@@ -27,6 +28,7 @@ export default function Routes() {
       }}
     >
       <Tab.Screen name="HomeStack" component={HomeStack} options={TabBarOptionsHome} />
+      <Tab.Screen name="BookingStack" component={BookingStack} options={TabBarOptionsBooking} />
     </Tab.Navigator>
   );
 }

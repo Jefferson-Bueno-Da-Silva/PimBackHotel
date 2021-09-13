@@ -1,6 +1,6 @@
 import React from 'react';
 import { BottomTabNavigationOptions } from "@react-navigation/bottom-tabs";
-import { ActiveHome, DeactivateHome } from "../../assets";
+import { ActiveBooking, ActiveHome, DeactivateBooking, DeactivateHome } from "../../assets";
 
 /**
  * @type { BottomTabNavigationOptions }
@@ -11,5 +11,16 @@ export const TabBarOptionsHome = {
       <ActiveHome/>
       :
       <DeactivateHome/>
+  )
+}
+/**
+ * @type { BottomTabNavigationOptions }
+ */
+export const TabBarOptionsBooking = {
+  tabBarIcon: ({focused}) => (
+    focused ? 
+      <ActiveBooking/>
+      :
+      <DeactivateBooking/>
   )
 }
