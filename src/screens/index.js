@@ -6,3 +6,4 @@ export { default as Home } from './home'
 export { default as Details } from './details'
 export { default as Reserve } from './Reserve';
 export { default as Finished } from './Finished';
+export { default as Booking } from './Booking';

@@ -2,7 +2,7 @@ import * as React from "react";
 
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import { Home, Details, Reserve, Finished } from "../screens";
+import { Booking } from "../screens";
 import { HeaderStack } from "../components";
 
 const Stack = createNativeStackNavigator();
@@ -11,25 +11,15 @@ function BookingStack() {
   return (
     <Stack.Navigator
       screenOptions={{ headerShown: false }}
-      initialRouteName={"Home"}
+      initialRouteName={"Booking"}
     >
-      <Stack.Screen name="Home" component={Home} />
-      <Stack.Screen name="Details" component={Details} />
       <Stack.Screen
         options={{
           headerShown: true,
-          header: () => <HeaderStack text="Reservar" />,
+          header: () => <HeaderStack text="Reservas" />,
         }}
-        name="Reserve"
-        component={Reserve}
-      />
-      <Stack.Screen
-        options={{
-          headerShown: true,
-          header: () => <HeaderStack text="Finalizado" />,
-        }}
-        name="Finished"
-        component={Finished}
+        name="Booking"
+        component={Booking}
       />
     </Stack.Navigator>
   );
