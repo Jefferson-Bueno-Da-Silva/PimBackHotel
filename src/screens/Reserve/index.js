@@ -9,7 +9,7 @@ import { styles } from './styles';
 const Reserve = () => {
   const navigation = useNavigation()
   const moveToFinished = useCallback(()=> {
-    navigation.navigate('Finished')
+    navigation.navigate('Finished', {text: 'Quando chegar no Hotel, faça o check-in pelo celular lendo o QR code.'})
   }, [])
   return (
     <>

@@ -2,7 +2,7 @@ import * as React from "react";
 
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import { Booking } from "../screens";
+import { Booking, CodeScanner } from "../screens";
 import { HeaderStack } from "../components";
 
 const Stack = createNativeStackNavigator();
@@ -20,6 +20,10 @@ function BookingStack() {
         }}
         name="Booking"
         component={Booking}
+      />
+      <Stack.Screen
+        name="CodeScanner"
+        component={CodeScanner}
       />
     </Stack.Navigator>
   );

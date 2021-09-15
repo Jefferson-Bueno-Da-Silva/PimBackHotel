@@ -1,4 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet } from 'react-native';
 import { primary } from '../../styles/colors';
 import { shadow } from '../../styles/shadow';
