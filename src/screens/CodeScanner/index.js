@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigation } from "@react-navigation/native";
 import { Text, View, StyleSheet, Button } from "react-native";
 import { BarCodeScanner } from "expo-barcode-scanner";
 
@@ -7,6 +8,7 @@ import { styles } from "./styles";
 export default function CodeScanner() {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
+  const { navigate } = useNavigation();
 
   useEffect(() => {
     (async () => {
@@ -17,7 +19,10 @@ export default function CodeScanner() {
 
   const handleBarCodeScanned = ({ type, data }) => {
     setScanned(true);
-    alert(`Bar code with type ${type} and data ${data} has been scanned!`);
+    navigate("Finished", {
+      text: "Check-in finalizado, passe na recepção e pegue sua chave"
+    });
+    // alert(`Bar code with type ${type} and data ${data} has been scanned!`);
   };
 
   if (hasPermission === null) {

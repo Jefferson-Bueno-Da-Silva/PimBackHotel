@@ -11,3 +11,4 @@ export { default as Finished } from "./Finished";
 // fluxo de check-in principal
 export { default as Booking } from "./Booking";
 export { default as CodeScanner } from "./CodeScanner";
+// retorna a tela Finished
