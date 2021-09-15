@@ -1,34 +1,37 @@
 import React from "react";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import HomeStack from "./homeStack";
-import BookingStack from "./bookingStack";
-import { TabBarOptionsBooking, TabBarOptionsHome } from "../components/TabBarOptions";
+import { Details, Reserve, Finished, CodeScanner } from "../screens";
+import { HeaderStack } from "../components";
+import bottomTab from "./bottomTab";
 
-import { primary } from "../styles/colors";
-import { shadow } from "../styles/shadow";
-
-const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 
 export default function Routes() {
   return (
-    <Tab.Navigator
-      screenOptions={{ 
-        headerShown: false, 
-        tabBarShowLabel: false,
-        tabBarStyle: {
-          height: 64,
-          borderWidth: 0,
-          borderColor: "transparent",
-          backgroundColor: primary.Lotion,
-          borderTopRightRadius: 20,
-          borderTopLeftRadius: 20,
-          ...shadow.shadow8
-        }
-      }}
+    <Stack.Navigator
+      screenOptions={{ headerShown: false }}
+      initialRouteName={"Home"}
     >
-      <Tab.Screen name="HomeStack" component={HomeStack} options={TabBarOptionsHome} />
-      <Tab.Screen name="BookingStack" component={BookingStack} options={TabBarOptionsBooking} />
-    </Tab.Navigator>
+      <Stack.Screen name="Home" component={bottomTab} />
+      <Stack.Screen name="Details" component={Details} />
+      <Stack.Screen
+        options={{
+          headerShown: true,
+          header: () => <HeaderStack text="Reservar" />
+        }}
+        name="Reserve"
+        component={Reserve}
+      />
+      <Stack.Screen
+        options={{
+          headerShown: true,
+          header: () => <HeaderStack text="Finalizado" />
+        }}
+        name="Finished"
+        component={Finished}
+      />
+      <Stack.Screen name="CodeScanner" component={CodeScanner} />
+    </Stack.Navigator>
   );
 }
