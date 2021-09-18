@@ -6,5 +6,6 @@ export const primary = {
   DarkCharcoal: "#333333",
   ChineseBlack: "#121212",
   ChineseBlackTransparent: "#1212124d",
-  borderColor: '#BEC5D1',
-}
+  borderColor: "#BEC5D1",
+  Accept: "#32B768"
+};

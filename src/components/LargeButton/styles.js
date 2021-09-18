@@ -5,21 +5,31 @@ import { fonts } from "../../styles/fonts";
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginHorizontal: 16,
+    alignItems: "center",
+    justifyContent: "center",
+    marginHorizontal: 16
   },
   buttonContainer: {
     height: 50,
     width: "100%",
-    backgroundColor: primary.ChineseBlack,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     borderRadius: 12,
-    paddingVertical: 16,
+    paddingVertical: 16
+  },
+  primaryColor: {
+    backgroundColor: primary.ChineseBlack
+  },
+  secondaryColor: {
+    backgroundColor: primary.AntiFlashWhite
+  },
+  primaryText: {
+    color: primary.White
+  },
+  secondaryText: {
+    color: primary.ChineseBlack
   },
   buttonText: {
-    color: primary.White,
     ...fonts.captionBold
-  },
-})
+  }
+});
