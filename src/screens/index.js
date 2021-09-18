@@ -1,5 +1,8 @@
 export { default as Background } from "./background";
 
+// fluxo de login
+export { default as Principal } from "./Principal";
+
 // fluxo Da Home
 // fluxo de Reserva principal
 export { default as Home } from "./home";
