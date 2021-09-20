@@ -1,13 +1,36 @@
-import React from "react";
+import React, { useRef, useState, useCallback } from "react";
 import { Image, Text, View } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { Modalize } from "react-native-modalize";
 
 import { styles } from "./styles.js";
 
 import { logo } from "../../assets";
 import { fonts } from "../../styles/fonts/index.js";
-import { LargeButton } from "../../components";
+import { LargeButton, DragDropModal } from "../../components";
 
 const Principal = () => {
+  /**
+   * @type {MutableRefObject<Modalize>}
+   */
+  const modalizeRef = useRef(null);
+  const [InitialRouteName, setInitialRouteName] = useState("");
+
+  const handleLogin = useCallback(
+    () => {
+      modalizeRef.current?.open();
+      setInitialRouteName("Login");
+    },
+    [modalizeRef]
+  );
+
+  const handleRegister = useCallback(
+    () => {
+      modalizeRef.current?.open();
+      setInitialRouteName("Register");
+    },
+    [modalizeRef]
+  );
   return (
     <View style={styles.container}>
       <View style={styles.imageContainer}>
@@ -22,8 +45,8 @@ const Principal = () => {
       </View>
 
       <View style={styles.buttonsContainer}>
-        <LargeButton buttonText="Criar conta" />
-        <LargeButton buttonText="Login" secondary />
+        <LargeButton buttonText="Criar conta" onPress={handleRegister} />
+        <LargeButton buttonText="Login" secondary onPress={handleLogin} />
       </View>
 
       <View style={styles.termsContainer}>
@@ -34,6 +57,7 @@ const Principal = () => {
           <Text style={styles.termsTextLink}> Politica de Privacidade. </Text>
         </Text>
       </View>
+      <DragDropModal ref={modalizeRef} routeName={InitialRouteName} />
     </View>
   );
 };
