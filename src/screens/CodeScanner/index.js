@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { Text, View, StyleSheet, Button } from "react-native";
+import { Text, View, StyleSheet, Button, Alert } from "react-native";
 import { BarCodeScanner } from "expo-barcode-scanner";
 
 import { styles } from "./styles";
@@ -12,6 +12,10 @@ export default function CodeScanner() {
 
   useEffect(() => {
     (async () => {
+      Alert.alert(
+        "Atenção",
+        "Leia Qualquer qr code para acessar a próxima tela"
+      );
       const { status } = await BarCodeScanner.requestPermissionsAsync();
       setHasPermission(status === "granted");
     })();
@@ -37,7 +41,7 @@ export default function CodeScanner() {
       <BarCodeScanner
         onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
         style={StyleSheet.absoluteFillObject}
-        type="front"
+        type="back"
       />
     </View>
   );

@@ -1,7 +1,6 @@
 import React, { forwardRef, useRef } from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text } from "react-native";
 import { Modalize } from "react-native-modalize";
-import TopTab from "../../routes/TopTab";
 import { primary } from "../../styles/colors";
 
 const DragDropModal = forwardRef(({ routeName }, ref) => {
@@ -15,7 +14,7 @@ const DragDropModal = forwardRef(({ routeName }, ref) => {
       }}
       ref={ref}
     >
-      <TopTab initialRoute={routeName} />
+      <Text>Em Dev</Text>
     </Modalize>
   );
 });
