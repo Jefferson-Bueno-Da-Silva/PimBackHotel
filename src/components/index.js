@@ -9,3 +9,5 @@ export { default as DatePicker } from "./DatePicker";
 export { default as Line } from "./Line";
 export { default as Picker } from "./Picker";
 export { default as DragDropModal } from "./DragDropModal";
+export { default as SingUp } from "./SingUp";
+export { default as TabNavigationModal } from "./TabNavigationModal";

@@ -25,6 +25,10 @@ export const fonts = StyleSheet.create({
     fontFamily: "Poppins_400Regular",
     fontSize: 16
   },
+  mediumSemiBold: {
+    fontFamily: "Poppins_600SemiBold",
+    fontSize: 14
+  },
   tiny: {
     fontFamily: "Poppins_400Regular",
     fontSize: 11

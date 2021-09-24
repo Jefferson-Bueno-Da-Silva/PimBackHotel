@@ -1,21 +1,25 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useRef } from "react";
 import { Image, Text, View } from "react-native";
 
 import { styles } from "./styles.js";
 
 import { logo } from "../../assets";
 import { fonts } from "../../styles/fonts/index.js";
-import { LargeButton } from "../../components";
+import { DragDropModal, LargeButton } from "../../components";
 import { useAuth } from "../../contexts";
 
 const Principal = () => {
+  const modalizeRef = useRef(null);
+
   const auth = useAuth();
+
   const handleLogin = useCallback(() => {
-    const data = auth.signIn({
-      email: "Teste@teste.com",
-      password: "123456789dez"
-    });
-    auth.setSessionFromLogin(data);
+    modalizeRef.current?.open();
+    // const data = auth.signIn({
+    //   email: "Teste@teste.com",
+    //   password: "123456789dez"
+    // });
+    // auth.setSessionFromLogin(data);
   }, []);
 
   return (
@@ -44,6 +48,7 @@ const Principal = () => {
           <Text style={styles.termsTextLink}> Politica de Privacidade. </Text>
         </Text>
       </View>
+      <DragDropModal ref={modalizeRef} />
     </View>
   );
 };
