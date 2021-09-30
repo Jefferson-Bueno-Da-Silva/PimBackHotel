@@ -8,7 +8,7 @@ const DragDropModal = forwardRef(({ routeName }, ref) => {
   return (
     <Modalize
       handleStyle={{ backgroundColor: primary.borderColor }}
-      snapPoint={300}
+      snapPoint={500}
       handlePosition="inside"
       childrenStyle={{
         paddingTop: 32

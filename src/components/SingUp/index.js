@@ -1,9 +1,11 @@
-import React, { useCallback, useState } from "react";
-import { Text, TouchableOpacity, View } from "react-native";
-import { fonts } from "../../styles/fonts/index.js";
+import React, { useState } from "react";
+import { Text, View } from "react-native";
 import TabNavigationModal from "../TabNavigationModal";
 
+import Login from "../../screens/Login";
+
 import { styles } from "./styles.js";
+import { fonts } from "../../styles/fonts";
 
 const SingUp = () => {
   const [active, setActive] = useState(false);
@@ -12,7 +14,7 @@ const SingUp = () => {
     <View style={styles.container}>
       <TabNavigationModal active={active} setActive={setActive} />
       <View style={styles.body}>
-        <Text style={[fonts.mediumSemiBold]}>Email</Text>
+        {active ? <Text style={[fonts.mediumSemiBold]}>teste</Text> : <Login />}
       </View>
     </View>
   );

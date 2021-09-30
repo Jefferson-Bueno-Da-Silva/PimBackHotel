@@ -6,20 +6,12 @@ import { styles } from "./styles.js";
 import { logo } from "../../assets";
 import { fonts } from "../../styles/fonts/index.js";
 import { DragDropModal, LargeButton } from "../../components";
-import { useAuth } from "../../contexts";
 
 const Principal = () => {
   const modalizeRef = useRef(null);
 
-  const auth = useAuth();
-
   const handleLogin = useCallback(() => {
     modalizeRef.current?.open();
-    // const data = auth.signIn({
-    //   email: "Teste@teste.com",
-    //   password: "123456789dez"
-    // });
-    // auth.setSessionFromLogin(data);
   }, []);
 
   return (
