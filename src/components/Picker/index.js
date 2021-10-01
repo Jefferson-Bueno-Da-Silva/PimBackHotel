@@ -8,21 +8,24 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { styles } from "./styles";
 import Line from "../Line";
 
-const Picker = ({ Occupation }) => {
+const Picker = ({ occupation }) => {
   const [open, setOpen] = useState(false);
-  const [textShow, setTextShow] = useState('Pessoa')
+  const [textShow, setTextShow] = useState("Pessoa");
   const [value, setValue] = useState(1);
 
-  useEffect(() => {
-    if(value === 1){
-      setTextShow('Pessoa')
-    }else{
-      setTextShow('Pessoas')
-    }
-  }, [value])
+  useEffect(
+    () => {
+      if (value === 1) {
+        setTextShow("Pessoa");
+      } else {
+        setTextShow("Pessoas");
+      }
+    },
+    [value]
+  );
 
   const itemClick = useCallback(
-    (item) => {
+    item => {
       setValue(item);
       setOpen(false);
       console.log(item);
@@ -30,9 +33,12 @@ const Picker = ({ Occupation }) => {
     [value]
   );
 
-  const toggleModal = useCallback(() => {
-    setOpen(!open);
-  }, [open]);
+  const toggleModal = useCallback(
+    () => {
+      setOpen(!open);
+    },
+    [open]
+  );
 
   return (
     <View style={styles.container}>
@@ -44,21 +50,23 @@ const Picker = ({ Occupation }) => {
       >
         <View style={styles.iconContainer}>
           <Ionicons name="person" size={16} color="black" />
-          <Text style={styles.textButton}>{value} {textShow}</Text>
+          <Text style={styles.textButton}>
+            {value} {textShow}
+          </Text>
         </View>
         <MaterialIcons name="keyboard-arrow-down" size={24} color="black" />
       </TouchableOpacity>
       {open && (
         <ScrollView style={styles.dropDownContainer}>
-          <ListItemContainer Occupation={Occupation} onPress={itemClick}/>
+          <ListItemContainer occupation={occupation} onPress={itemClick} />
         </ScrollView>
       )}
     </View>
   );
 };
-const ListItemContainer = ({ Occupation, onPress }) => {
+const ListItemContainer = ({ occupation, onPress }) => {
   let itemList = [];
-  for (let i = 1; i <= Occupation; i++) {
+  for (let i = 1; i <= occupation; i++) {
     itemList.push(
       <TouchableOpacity
         style={styles.iconContainer}
@@ -67,7 +75,9 @@ const ListItemContainer = ({ Occupation, onPress }) => {
         key={i}
       >
         <Ionicons name="people" size={16} color="black" />
-        <Text style={styles.textButton}>{i} { i === 1 ? "Pessoa" : "Pessoas"}</Text>
+        <Text style={styles.textButton}>
+          {i} {i === 1 ? "Pessoa" : "Pessoas"}
+        </Text>
       </TouchableOpacity>
     );
   }

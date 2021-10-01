@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { ScrollView, Text, View } from "react-native";
 
 // components
@@ -10,28 +10,49 @@ import { useNavigation } from "@react-navigation/core";
 import { styles } from "./styles";
 
 // utils
-import { hotelData } from "../../utils/apiMock";
 import { fonts } from "../../styles/fonts";
 
-const Details = () => {
+const DEFAULT = {
+  id: "1234",
+  imagePick:
+    "https://assets-global.website-files.com/6009ec8cda7f305645c9d91b/601082646d6bf4446451b0a4_6002086f72b72717ae01d954_google-doc-error-message.png",
+  RoomName: "Sem Nome",
+  location: "Sem Local",
+  occupation: 0,
+  time: 0,
+  price: 0.0
+};
+
+const Details = ({ route }) => {
   const navigation = useNavigation();
+  const [hotelData, setHotelData] = useState(DEFAULT);
   const moveToReserves = useCallback(() => {
-    navigation.navigate("Reserve");
+    navigation.navigate("Reserve", route?.params);
   }, []);
+
+  useEffect(
+    () => {
+      if (!!route?.params) {
+        setHotelData(route?.params);
+      }
+    },
+    [route]
+  );
+
   return (
     <>
       <ScrollView style={styles.container}>
         <HeaderImage
-          imageUri={hotelData[0].imagePick}
-          title={hotelData[0].RoomName}
+          imageUri={hotelData.imagePick}
+          title={hotelData.RoomName}
         />
         <View style={styles.details}>
           <View style={styles.location}>
             <Ionicons name="location-outline" size={24} color="black" />
-            <Text style={fonts.captionRegular}>{hotelData[0].location}</Text>
+            <Text style={fonts.captionRegular}>{hotelData.location}</Text>
           </View>
           <Text style={fonts.subTitle}>
-            R${hotelData[0].price.toFixed(2).replace(".", ",")}
+            R${hotelData.price.toFixed(2).replace(".", ",")}
           </Text>
         </View>
 
@@ -40,7 +61,7 @@ const Details = () => {
             <Text style={fonts.subTitle}>Ocupação</Text>
           </View>
           <Text style={fonts.captionRegular}>
-            {hotelData[0].Occupation} Pessoa | {hotelData[0].time} noites
+            {hotelData.occupation} Pessoa | {hotelData.time} noites
           </Text>
         </View>
       </ScrollView>

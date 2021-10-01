@@ -8,8 +8,8 @@ import { styles } from "./styles";
 
 const Home = () => {
   const navigation = useNavigation();
-  const navigateToDetails = () => {
-    navigation.navigate("Details");
+  const navigateToDetails = item => {
+    navigation.navigate("Details", item);
   };
   return (
     <View style={styles.container}>
@@ -19,7 +19,7 @@ const Home = () => {
         keyExtractor={hotelData => hotelData.id}
         ListHeaderComponent={() => <View style={styles.space} />}
         renderItem={({ item }) => (
-          <ListView data={item} onPress={navigateToDetails} />
+          <ListView data={item} onPress={() => navigateToDetails(item)} />
         )}
         style={styles.flatList}
       />
