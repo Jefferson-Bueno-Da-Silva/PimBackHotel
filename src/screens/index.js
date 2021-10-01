@@ -3,6 +3,7 @@ export { default as Background } from "./background";
 // fluxo de login
 export { default as Principal } from "./Principal";
 export { default as Login } from "./Login";
+export { default as Register } from "./Register";
 
 // fluxo Da Home
 // fluxo de Reserva principal

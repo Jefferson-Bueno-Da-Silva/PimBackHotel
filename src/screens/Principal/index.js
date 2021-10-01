@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from "react";
+import React, { useCallback, useRef, useState } from "react";
 import { Image, Text, View } from "react-native";
 
 import { styles } from "./styles.js";
@@ -9,7 +9,7 @@ import { DragDropModal, LargeButton } from "../../components";
 
 const Principal = () => {
   const modalizeRef = useRef(null);
-
+  const [route, setRoute] = useState("");
   const handleLogin = useCallback(() => {
     modalizeRef.current?.open();
   }, []);
@@ -28,8 +28,21 @@ const Principal = () => {
       </View>
 
       <View style={styles.buttonsContainer}>
-        <LargeButton buttonText="Criar conta" onPress={handleLogin} />
-        <LargeButton buttonText="Login" secondary onPress={handleLogin} />
+        <LargeButton
+          buttonText="Criar conta"
+          onPress={() => {
+            handleLogin();
+            setRoute("login");
+          }}
+        />
+        <LargeButton
+          buttonText="Login"
+          secondary
+          onPress={() => {
+            handleLogin();
+            setRoute("register");
+          }}
+        />
       </View>
 
       <View style={styles.termsContainer}>
@@ -40,7 +53,7 @@ const Principal = () => {
           <Text style={styles.termsTextLink}> Politica de Privacidade. </Text>
         </Text>
       </View>
-      <DragDropModal ref={modalizeRef} />
+      <DragDropModal ref={modalizeRef} routeName={route} />
     </View>
   );
 };

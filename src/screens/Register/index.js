@@ -3,15 +3,16 @@ import LargeButton from "../../components/LargeButton";
 import InputLabel from "../../components/InputLabel";
 import { useAuth } from "../../contexts";
 
-const Login = () => {
+const Register = () => {
   const auth = useAuth();
-  const authDefaults = {
-    email: __DEV__ ? "Teste@teste.com" : "",
-    password: __DEV__ ? "123456789dez" : ""
-  };
-  const [email, setEmailText] = useState(authDefaults.email);
-  const [password, setPassword] = useState(authDefaults.password);
 
+  const [full_name, setFull_name] = useState("");
+  const [email, setEmailText] = useState("");
+  const [password, setPassword] = useState("");
+
+  const _onChangeTextFull_name = text => {
+    setFull_name(text);
+  };
   const _onChangeTextEmail = text => {
     setEmailText(text);
   };
@@ -20,12 +21,19 @@ const Login = () => {
   };
 
   const handleLogin = () => {
-    const data = auth.signIn({ email, password });
-    auth.setSessionFromLogin(data);
+    const data = auth.register({ full_name, email, password });
+    console.log(data);
+    // auth.setSessionFromLogin(data);
   };
 
   return (
     <>
+      <InputLabel
+        label="Nome Completo"
+        placeholder="Nome Completo"
+        value={full_name}
+        onChangeText={_onChangeTextFull_name}
+      />
       <InputLabel
         label="Email"
         placeholder="Email"
@@ -40,12 +48,12 @@ const Login = () => {
         onChangeText={_onChangeTextPassword}
       />
       <LargeButton
-        secondary={!(!!email && !!password)}
-        buttonText="Login"
+        secondary={!(!!full_name && !!email && !!password)}
+        buttonText="Criar conta"
         onPress={handleLogin}
       />
     </>
   );
 };
 
-export default Login;
+export default Register;

@@ -15,7 +15,7 @@ const DragDropModal = forwardRef(({ routeName }, ref) => {
       }}
       ref={ref}
     >
-      <SingUp />
+      <SingUp routeName={routeName} />
     </Modalize>
   );
 });

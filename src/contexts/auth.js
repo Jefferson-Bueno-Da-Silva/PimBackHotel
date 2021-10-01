@@ -1,4 +1,4 @@
-import { signIn } from "../services/api/auth";
+import { signIn, register } from "../services/api/auth";
 
 export default class Auth {
   constructor(authState, authDispatch) {
@@ -38,4 +38,6 @@ export default class Auth {
       }
     });
   }
+
+  register = registerData => register(registerData);
 }
