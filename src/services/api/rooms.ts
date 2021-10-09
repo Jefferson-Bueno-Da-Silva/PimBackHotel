@@ -15,6 +15,8 @@ export type RoomsResponse = {
   price: number
 }
 
-export const getAll = (params: params): RoomsResponse[] => {
-  return hotelData
+export const getAll = (params: params): Promise<RoomsResponse[]> => {
+  return new Promise((resolve, reject) => {
+    resolve(hotelData)
+  })
 }
