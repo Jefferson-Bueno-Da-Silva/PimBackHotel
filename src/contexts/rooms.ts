@@ -5,7 +5,7 @@ import React, { useMemo } from "react";
 
 export default class Rooms {
   constructor(
-    private state: RoomsState = {rooms: []},
+    private state: RoomsState,
     private dispatch: React.Dispatch<RoomsActions>,
   ) {}
   
