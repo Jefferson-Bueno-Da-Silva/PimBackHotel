@@ -1,11 +1,11 @@
 import { signIn, register } from "../services/api/auth";
 import { getAll, params, RoomsResponse } from "../services/api/rooms";
-import {RoomsActions, RoomsState} from '../contexts/reducers/RoomsReducer';
-import React from "react";
+import {DEFAULT_ROOMS_STATE, RoomsActions, RoomsState} from '../contexts/reducers/RoomsReducer';
+import React, { useMemo } from "react";
 
 export default class Rooms {
   constructor(
-    private state: RoomsState,
+    private state: RoomsState = {rooms: []},
     private dispatch: React.Dispatch<RoomsActions>,
   ) {}
   
@@ -13,12 +13,13 @@ export default class Rooms {
     params: params,
     concatItem: RoomsResponse[] = []
   ) =>  {
-    return await getAll(params).then(response => {
-      this.updateRoomsData(response.data)
-      response.data = concatItem.concat(response.data)
+    return await getAll(params).then( async response => {
+      await this.updateRoomsData(response.data)
       return response.data
     }).catch(e => console.debug(e))
   };
+
+  getState = useMemo(() => this.state, [this])
 
   async updateRoomsData(rooms: RoomsResponse[]) {
     this.dispatch({

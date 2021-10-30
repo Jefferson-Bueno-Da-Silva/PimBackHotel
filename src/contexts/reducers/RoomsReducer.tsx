@@ -38,14 +38,9 @@ const RoomsReducer = (
   switch (action.type) {
     case 'updateRoomsData': {
       const { rooms } = action.payload;
-      const toUpdate: RoomsResponse[] = [];
-      const idsToUpdate: number[] = [];
       return {
         ...state,
-        rooms: [
-          ...state.rooms.filter((r) => !idsToUpdate.includes(r.id)),
-          ...toUpdate,
-        ],
+        rooms
       };
     }
     default:
