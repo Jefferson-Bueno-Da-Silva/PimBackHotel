@@ -20,7 +20,7 @@ export type RoomsResponse = {
   howManyPeople: number,
   description: string,
   image: string,
-  roomCategory: categoryResponse,
+  roomCategory?: categoryResponse,
 }
 
 export const getAll = (params: params): Promise<AxiosResponse<RoomsResponse[]>> => {
