@@ -7,8 +7,12 @@ export default class Auth {
     this.authDispatch = authDispatch;
   }
 
-  signIn(loginData) {
-    return signIn(loginData);
+  signIn = loginData => signIn(loginData);
+
+  register = registerData => register(registerData);
+
+  isLogged() {
+    return !!this.authState.token;
   }
 
   signOut() {
@@ -16,10 +20,6 @@ export default class Auth {
       type: "resetUserSession"
     });
     //dispatch para limpar os dados do usuário e produtos
-  }
-
-  isLogged() {
-    return !!this.authState.token;
   }
 
   setAxiosToken(token) {
@@ -48,6 +48,4 @@ export default class Auth {
       }
     });
   }
-
-  register = registerData => register(registerData);
 }
