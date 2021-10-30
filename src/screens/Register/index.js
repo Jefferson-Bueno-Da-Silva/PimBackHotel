@@ -6,9 +6,9 @@ import { useAuth } from "../../contexts";
 const Register = () => {
   const auth = useAuth();
 
-  const [full_name, setFull_name] = useState("");
-  const [email, setEmailText] = useState("");
-  const [password, setPassword] = useState("");
+  const [full_name, setFull_name] = useState("Sophya De Lima");
+  const [email, setEmailText] = useState("sophya@gmail.com");
+  const [password, setPassword] = useState("1234");
 
   const _onChangeTextFull_name = text => {
     setFull_name(text);
@@ -20,10 +20,9 @@ const Register = () => {
     setPassword(text);
   };
 
-  const handleLogin = () => {
-    const data = auth.register({ full_name, email, password });
-    console.log(data);
-    // auth.setSessionFromLogin(data);
+  const handleLogin = async () => {
+    const { data } = await auth.register({ name: full_name, email, password });
+    auth.setSessionFromLogin(data);
   };
 
   return (

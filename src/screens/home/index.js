@@ -13,6 +13,7 @@ const Home = () => {
   };
   const rooms = useRooms();
   const [hotelData, setHotelData] = useState([]);
+
   useEffect(() => {
     (async () => {
       getRooms();
@@ -22,12 +23,13 @@ const Home = () => {
   const getRooms = useCallback(async () => {
     setHotelData(await rooms.getAll());
   }, []);
+
   return (
     <View style={styles.container}>
       <Header /* uriProfile={userData.profileImage} */ />
       <FlatList
         data={hotelData}
-        keyExtractor={hotelData => hotelData.id}
+        keyExtractor={hotelData => hotelData.id.toString()}
         ListHeaderComponent={() => <View style={styles.space} />}
         renderItem={({ item }) => (
           <ListView data={item} onPress={() => navigateToDetails(item)} />

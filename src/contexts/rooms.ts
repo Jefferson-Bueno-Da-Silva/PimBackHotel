@@ -9,17 +9,15 @@ export default class Rooms {
     private dispatch: React.Dispatch<RoomsActions>,
   ) {}
   
-  getAll = (
+  getAll = async (
     params: params,
     concatItem: RoomsResponse[] = []
-  ) => {
-    return new Promise((resolve, reject) => {
-      getAll(params).then(response => {
-        this.updateRoomsData(response)
-        response = concatItem.concat(response)
-        resolve(response);
-      }).catch(err => reject(err))
-    })
+  ) =>  {
+    return await getAll(params).then(response => {
+      this.updateRoomsData(response.data)
+      response.data = concatItem.concat(response.data)
+      return response.data
+    }).catch(e => console.debug(e))
   };
 
   async updateRoomsData(rooms: RoomsResponse[]) {

@@ -7,13 +7,13 @@ import { styles } from "./styles";
 import { primary } from "../../styles/colors";
 
 const ListView = ({ data, onPress }) => {
-  const { imagePick, RoomName, location } = data;
+  const { image, description, roomCategory } = data;
   return (
     <View style={styles.container}>
-      <Image source={{ uri: imagePick }} style={styles.image} />
+      <Image source={{ uri: image }} style={styles.image} />
 
       <View style={styles.dataContainer}>
-        <Text style={styles.title}>{RoomName}</Text>
+        <Text style={styles.title}>{description}</Text>
 
         <View style={styles.footerContainer}>
           <View style={styles.locationContainer}>
@@ -22,7 +22,7 @@ const ListView = ({ data, onPress }) => {
               size={15}
               color={primary.ChineseBlack}
             />
-            <Text style={styles.location}>{location}</Text>
+            <Text style={styles.location}>{roomCategory.categoryName}</Text>
           </View>
 
           <TouchableOpacity

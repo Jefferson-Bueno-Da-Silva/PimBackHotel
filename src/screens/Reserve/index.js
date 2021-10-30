@@ -8,7 +8,9 @@ import { styles } from "./styles";
 
 const Reserve = ({ route }) => {
   const navigation = useNavigation();
-  const [occupation, setOccupation] = useState(route?.params.occupation || 0);
+  const [occupation, setOccupation] = useState(
+    route?.params.howManyPeople || 0
+  );
   const moveToFinished = useCallback(() => {
     navigation.navigate("Finished", {
       text:

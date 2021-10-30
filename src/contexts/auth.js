@@ -1,3 +1,4 @@
+import api from "../services/api";
 import { signIn, register } from "../services/api/auth";
 
 export default class Auth {
@@ -21,7 +22,16 @@ export default class Auth {
     return !!this.authState.token;
   }
 
+  setAxiosToken(token) {
+    if (token) {
+      api.defaults.headers.Authorization = `Bearer ${token}`;
+    } else {
+      api.defaults.headers.Authorization = null;
+    }
+  }
+
   setSessionFromLogin(loginData) {
+    this.setAxiosToken(loginData.token);
     this.authDispatch({
       type: "setUserSession",
       payload: loginData

@@ -1,3 +1,5 @@
+import { AxiosResponse } from "axios"
+import api from "."
 import { hotelData } from "../../utils/apiMock"
 
 export type params = {
@@ -5,18 +7,22 @@ export type params = {
   limit: number,
 }
 
-export type RoomsResponse = {
-  id: string,
-  imagePick: string,
-  RoomName: string,
-  location: string,
-  occupation: number,
-  time: number,
-  price: number
+export type categoryResponse ={
+  id: number,
+  categoryName: string,
+  qtyBeds: number,
+  value: string
 }
 
-export const getAll = (params: params): Promise<RoomsResponse[]> => {
-  return new Promise((resolve, reject) => {
-    resolve(hotelData)
-  })
+export type RoomsResponse = {
+  id: number,
+  roomNumber: string,
+  howManyPeople: number,
+  description: string,
+  image: string,
+  roomCategory: categoryResponse,
+}
+
+export const getAll = (params: params): Promise<AxiosResponse<RoomsResponse[]>> => {
+  return api.get<RoomsResponse[]>('/rooms')
 }
