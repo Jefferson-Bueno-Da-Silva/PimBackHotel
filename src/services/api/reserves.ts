@@ -38,3 +38,11 @@ export type createResponse = {
 export const create = (body: bodyReserves): Promise<AxiosResponse<createResponse>> => {
   return api.post<createResponse>('/reserves', body)
 }
+
+export type bodyCheckin = {
+  checkin: boolean;
+}
+
+export const checkin = (id: number, body: bodyCheckin): Promise<AxiosResponse<bodyCheckin>> => {
+  return api.patch<bodyCheckin>(`/reserves/${id}`, body)
+}

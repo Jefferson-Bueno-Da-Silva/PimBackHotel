@@ -1,8 +1,7 @@
 import React, { useMemo } from "react";
 import { Alert } from "react-native";
-import { bodyReserves, BookingResponse, getAll, params, create } from "../services/api/reserves";
+import { bodyReserves, BookingResponse, getAll, params, create, bodyCheckin, checkin } from "../services/api/reserves";
 import { BookingActions, BookingState } from "./reducers/BookingReducer";
-
 
 export default class Booking {
   constructor(
@@ -26,6 +25,21 @@ export default class Booking {
       return response
     }).catch(e => {
       console.debug(e); 
+      Alert.alert('Erro', 'Ocorreu um erro inesperado, tente novamente mais tarde');
+      return e
+    })
+  }
+
+  checkin = async (
+    id: number,
+    body: bodyCheckin
+  ) => {
+    console.log(id, body);
+    
+    return await checkin(id, body).then(response => {
+      return response
+    }).catch(e => {
+      console.debug(e.message); 
       Alert.alert('Erro', 'Ocorreu um erro inesperado, tente novamente mais tarde');
       return e
     })

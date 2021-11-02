@@ -4,11 +4,14 @@ import { Text, View, StyleSheet, Button, Alert } from "react-native";
 import { BarCodeScanner } from "expo-barcode-scanner";
 
 import { styles } from "./styles";
+import { useBookings } from "../../contexts";
 
 export default function CodeScanner() {
+  const { navigate } = useNavigation();
+  const booking = useBookings();
+
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
-  const { navigate } = useNavigation();
 
   useEffect(() => {
     (async () => {
@@ -18,15 +21,22 @@ export default function CodeScanner() {
       );
       const { status } = await BarCodeScanner.requestPermissionsAsync();
       setHasPermission(status === "granted");
+      handleBarCodeScanned({});
     })();
   }, []);
 
-  const handleBarCodeScanned = ({ type, data }) => {
+  const handleBarCodeScanned = async ({ type, data }) => {
     setScanned(true);
-    navigate("Finished", {
-      text: "Check-in finalizado, passe na recepção e pegue sua chave"
+
+    const response = await booking.checkin(booking.getIdSelected, {
+      checkin: true
     });
-    // alert(`Bar code with type ${type} and data ${data} has been scanned!`);
+
+    if (!!response.status && response.status === 200) {
+      navigate("Finished", {
+        text: "Check-in finalizado, passe na recepção e pegue sua chave"
+      });
+    }
   };
 
   if (hasPermission === null) {
