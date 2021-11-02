@@ -19,3 +19,22 @@ export type BookingResponse = {
 export const getAll = (params: params): Promise<AxiosResponse<BookingResponse[]>> => {
   return api.get<BookingResponse[]>('/reserves', {params})
 }
+
+export type bodyReserves = {
+  data_entrada: string,
+  data_saida: string,
+  id_user: number,
+  id_quarto: number,
+}
+
+export type createResponse = {
+  data_entrada: string,
+  data_saida: string,
+  id_user: number,
+  id_quarto: number,
+  id_reserva: number
+}
+
+export const create = (body: bodyReserves): Promise<AxiosResponse<createResponse>> => {
+  return api.post<createResponse>('/reserves', body)
+}

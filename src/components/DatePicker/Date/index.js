@@ -1,28 +1,27 @@
-import React, { useState } from 'react'
-import { Text, View, TouchableOpacity, Platform } from 'react-native'
-import { MaterialCommunityIcons } from '@expo/vector-icons'
-import DateTimePicker from '@react-native-community/datetimepicker'
-import { styles } from '../styles';
+import React, { useState } from "react";
+import { Text, View, TouchableOpacity, Platform } from "react-native";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import DateTimePicker from "@react-native-community/datetimepicker";
+import { styles } from "../styles";
 
-const DateButton = () => {
-  const [date, setDate] = useState(new Date(1598051730000))
-  const [mode, setMode] = useState('date')
-  const [show, setShow] = useState(false)
+const DateButton = ({ date, setDate }) => {
+  const [mode, setMode] = useState("date");
+  const [show, setShow] = useState(false);
 
   const onChange = (event, selectedDate) => {
-    const currentDate = selectedDate || date
-    setShow(Platform.OS === 'ios')
-    setDate(currentDate)
-  }
+    const currentDate = selectedDate || date;
+    setShow(Platform.OS === "ios");
+    setDate(currentDate);
+  };
 
-  const showMode = (currentMode) => {
-    setShow(true)
-    setMode(currentMode)
-  }
+  const showMode = currentMode => {
+    setShow(true);
+    setMode(currentMode);
+  };
 
   const showDatepicker = () => {
-    showMode('date')
-  }
+    showMode("date");
+  };
   return (
     <>
       <TouchableOpacity

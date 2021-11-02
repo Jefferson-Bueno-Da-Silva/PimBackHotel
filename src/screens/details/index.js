@@ -51,7 +51,6 @@ const Details = ({ route }) => {
   return (
     <>
       <ScrollView style={styles.container}>
-        {console.log()}
         <HeaderImage imageUri={hotelData.image} title={hotelData.description} />
         <View style={styles.details}>
           <View style={styles.location}>

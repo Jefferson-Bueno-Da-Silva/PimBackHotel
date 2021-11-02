@@ -1,5 +1,6 @@
 import React, { useMemo } from "react";
-import { BookingResponse, getAll, params } from "../services/api/reserves";
+import { Alert } from "react-native";
+import { bodyReserves, BookingResponse, getAll, params, create } from "../services/api/reserves";
 import { BookingActions, BookingState } from "./reducers/BookingReducer";
 
 
@@ -17,6 +18,18 @@ export default class Booking {
       return response.data
     }).catch(e => console.debug(e))
   };
+
+  create = async (
+    body: bodyReserves
+  ) => {
+    return await create(body).then(response => {
+      return response
+    }).catch(e => {
+      console.debug(e); 
+      Alert.alert('Erro', 'Ocorreu um erro inesperado, tente novamente mais tarde');
+      return e
+    })
+  }
 
   // Get's
   getIdSelected = useMemo(() => this.state.idSelected, [this])

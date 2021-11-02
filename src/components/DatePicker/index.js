@@ -5,12 +5,17 @@ import DateButton from "./Date";
 
 import { styles } from "./styles";
 
-const DatePicker = () => {
+const DatePicker = ({
+  dateEntrada,
+  setDateEntrada,
+  dateSaida,
+  setDateSaida
+}) => {
   return (
     <View style={styles.container}>
-      <DateButton />
+      <DateButton date={dateEntrada} setDate={setDateEntrada} />
       <Line />
-      <DateButton />
+      <DateButton date={dateSaida} setDate={setDateSaida} />
     </View>
   );
 };

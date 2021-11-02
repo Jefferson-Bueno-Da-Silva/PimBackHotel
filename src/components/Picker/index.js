@@ -28,7 +28,6 @@ const Picker = ({ occupation }) => {
     item => {
       setValue(item);
       setOpen(false);
-      console.log(item);
     },
     [value]
   );

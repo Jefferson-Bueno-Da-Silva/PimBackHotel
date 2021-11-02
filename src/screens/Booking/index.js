@@ -9,17 +9,21 @@ import { useBookings } from "../../contexts";
 const Booking = () => {
   const booking = useBookings();
 
-  const { navigate } = useNavigation();
+  const navigation = useNavigation();
   const moveToCodeScanner = id => {
     booking.setIdSelected(id);
-    navigate("CodeScanner");
+    navigation.navigate("CodeScanner");
   };
 
-  useEffect(() => {
-    (async () => {
-      await booking.getAll({ checkin: false });
-    })();
-  }, []);
+  useEffect(
+    () => {
+      const unsubscribe = navigation.addListener("focus", async () => {
+        await booking.getAll({ checkin: false });
+      });
+      return unsubscribe;
+    },
+    [navigation]
+  );
 
   return (
     <View style={styles.container}>
