@@ -12,7 +12,8 @@ import BookingReducer, {
 
 const AppContext = createContext({
   auth: Auth,
-  rooms: Rooms
+  rooms: Rooms,
+  booking: Booking
 });
 
 export const AppProvider = ({ children }) => {

@@ -20,6 +20,17 @@ export default class Booking {
 
   getState = useMemo(() => this.state, [this])
 
+  setIdSelected = (id: number) => {
+    this.dispatch({
+      type: 'setIdSelected',
+      payload: {
+        idSelected: id,
+      },
+    });
+  }
+
+  getIdSelected = useMemo(() => this.state.idSelected, [this])
+
   async updateBookingsData(rooms: BookingResponse[]) {
     this.dispatch({
       type: 'updateBookingsData',

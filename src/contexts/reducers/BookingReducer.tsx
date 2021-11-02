@@ -2,6 +2,7 @@ import { BookingResponse } from "../../services/api/reserves";
 
 export type BookingState = {
   rooms: BookingResponse[]
+  idSelected: number;
 }
 
 export type UpdateProductData = {
@@ -11,7 +12,14 @@ export type UpdateProductData = {
   };
 };
 
-export type BookingActions = UpdateProductData
+export type SetIdSelected = {
+  type: 'setIdSelected';
+  payload: {
+    idSelected: number;
+  };
+};
+
+export type BookingActions = UpdateProductData | SetIdSelected
 
 export const DEFAULT_BOOKING_DATA: BookingResponse = {
   id_reserva: 0,
@@ -29,6 +37,7 @@ export const DEFAULT_BOOKING_DATA: BookingResponse = {
 
 export const DEFAULT_BOOKING_STATE: BookingState = {
   rooms: [],
+  idSelected: null
 };
 
 const BookingReducer = (
@@ -42,6 +51,12 @@ const BookingReducer = (
         ...state,
         rooms
       };
+    }
+    case 'setIdSelected': {
+      return {
+        ...state,
+        ...action.payload
+      }
     }
     default:
       return state;

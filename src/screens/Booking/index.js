@@ -10,13 +10,14 @@ const Booking = () => {
   const booking = useBookings();
 
   const { navigate } = useNavigation();
-  const moveToCodeScanner = () => {
+  const moveToCodeScanner = id => {
+    booking.setIdSelected(id);
     navigate("CodeScanner");
   };
 
   useEffect(() => {
     (async () => {
-      await booking.getAll();
+      await booking.getAll({ checkin: false });
     })();
   }, []);
 
@@ -24,13 +25,13 @@ const Booking = () => {
     <View style={styles.container}>
       <FlatList
         data={booking.getState.rooms}
-        keyExtractor={hotelData => hotelData.id}
+        keyExtractor={hotelData => hotelData.id_reserva.toString()}
         ListHeaderComponent={() => <View style={styles.space} />}
         renderItem={({ item }) => (
           <ListView
             data={item.room}
             booking={item}
-            onPress={moveToCodeScanner}
+            onPress={() => moveToCodeScanner(item.id_reserva)}
           />
         )}
       />
