@@ -6,9 +6,9 @@ import { useAuth } from "../../contexts";
 const Register = () => {
   const auth = useAuth();
 
-  const [full_name, setFull_name] = useState("Sophya De Lima");
-  const [email, setEmailText] = useState("sophya@gmail.com");
-  const [password, setPassword] = useState("1234");
+  const [full_name, setFull_name] = useState("");
+  const [email, setEmailText] = useState("");
+  const [password, setPassword] = useState("");
 
   const _onChangeTextFull_name = text => {
     setFull_name(text);
