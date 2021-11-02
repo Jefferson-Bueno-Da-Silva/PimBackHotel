@@ -23,7 +23,7 @@ const Home = () => {
     <View style={styles.container}>
       <Header /* uriProfile={userData.profileImage} */ />
       <FlatList
-        data={rooms.getState.rooms}
+        data={rooms.getRooms}
         keyExtractor={hotelData => hotelData.id.toString()}
         ListHeaderComponent={() => <View style={styles.space} />}
         renderItem={({ item }) => (

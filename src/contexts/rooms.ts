@@ -19,7 +19,7 @@ export default class Rooms {
     }).catch(e => console.debug(e))
   };
 
-  getState = useMemo(() => this.state, [this])
+  getRooms = useMemo(() => this.state.rooms, [this])
 
   async updateRoomsData(rooms: RoomsResponse[]) {
     this.dispatch({

@@ -24,7 +24,7 @@ const Booking = () => {
   return (
     <View style={styles.container}>
       <FlatList
-        data={booking.getState.rooms}
+        data={booking.getRooms}
         keyExtractor={hotelData => hotelData.id_reserva.toString()}
         ListHeaderComponent={() => <View style={styles.space} />}
         renderItem={({ item }) => (
