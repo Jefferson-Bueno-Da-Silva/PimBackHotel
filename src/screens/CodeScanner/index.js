@@ -14,7 +14,7 @@ export default function CodeScanner() {
     (async () => {
       Alert.alert(
         "Atenção",
-        "Leia Qualquer qr code para acessar a próxima tela"
+        "Leia o QR code na recepção do hotel para finalizar seu check-in"
       );
       const { status } = await BarCodeScanner.requestPermissionsAsync();
       setHasPermission(status === "granted");
