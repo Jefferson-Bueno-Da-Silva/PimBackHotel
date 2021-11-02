@@ -12,17 +12,11 @@ import { fonts } from "../../styles/fonts";
 // Assets
 import { logo } from "../../assets";
 
-const Header = ({ uriProfile }) => {
-  const [value, setValue] = useState();
-  const onPressSearch = () => {
-    console.log("Search");
-    console.log(value);
-  };
+const Header = ({ value, setValue, onPressSearch }) => {
   return (
     <View style={styles.container}>
       <View style={styles.top}>
         <Image source={logo} style={styles.logo} resizeMode="contain" />
-        {/* <Avatar sizeType="small" profile={uriProfile} /> */}
       </View>
       <View style={styles.middle}>
         <Text style={[fonts.captionBold]}>Um lugar lindo para viver.</Text>

@@ -8,10 +8,10 @@ import { useRooms } from "../../contexts";
 
 const Home = () => {
   const navigation = useNavigation();
-  const navigateToDetails = item => {
-    navigation.navigate("Details", item);
-  };
   const rooms = useRooms();
+
+  const [value, setValue] = useState();
+  const [list, setList] = useState(rooms.getRooms);
 
   useEffect(() => {
     (async () => {
@@ -19,11 +19,36 @@ const Home = () => {
     })();
   }, []);
 
+  useEffect(
+    () => {
+      if (!!!value) {
+        setList(rooms.getRooms);
+      }
+    },
+    [value]
+  );
+
+  const onPressSearch = () => {
+    if (!!value) {
+      const filter = list.filter(item => {
+        return item.description
+          .toLowerCase()
+          .includes(value.toString().toLowerCase());
+      });
+
+      setList(filter);
+    }
+  };
+
+  const navigateToDetails = item => {
+    navigation.navigate("Details", item);
+  };
+
   return (
     <View style={styles.container}>
-      <Header /* uriProfile={userData.profileImage} */ />
+      <Header value={value} setValue={setValue} onPressSearch={onPressSearch} />
       <FlatList
-        data={rooms.getRooms}
+        data={list}
         keyExtractor={hotelData => hotelData.id.toString()}
         ListHeaderComponent={() => <View style={styles.space} />}
         renderItem={({ item }) => (
