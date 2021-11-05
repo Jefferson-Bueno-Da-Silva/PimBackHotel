@@ -1,6 +1,5 @@
 import { AxiosResponse } from "axios"
 import api from "."
-import { hotelData } from "../../utils/apiMock"
 
 export type params = {
   page: number,

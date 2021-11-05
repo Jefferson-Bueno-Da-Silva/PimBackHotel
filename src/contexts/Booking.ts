@@ -15,7 +15,7 @@ export default class Booking {
     return await getAll(params).then( async response => {
       await this.updateBookingsData(response.data)
       return response.data
-    }).catch(e => console.debug(e))
+    }).catch(e => console.error(e))
   };
 
   create = async (
@@ -24,7 +24,7 @@ export default class Booking {
     return await create(body).then(response => {
       return response
     }).catch(e => {
-      console.debug(e); 
+      console.error(e); 
       Alert.alert('Erro', 'Ocorreu um erro inesperado, tente novamente mais tarde');
       return e
     })
@@ -34,12 +34,10 @@ export default class Booking {
     id: number,
     body: bodyCheckin
   ) => {
-    console.log(id, body);
-    
     return await checkin(id, body).then(response => {
       return response
     }).catch(e => {
-      console.debug(e.message); 
+      console.error(e.message); 
       Alert.alert('Erro', 'Ocorreu um erro inesperado, tente novamente mais tarde');
       return e
     })

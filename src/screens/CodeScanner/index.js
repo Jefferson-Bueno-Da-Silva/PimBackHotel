@@ -21,7 +21,6 @@ export default function CodeScanner() {
       );
       const { status } = await BarCodeScanner.requestPermissionsAsync();
       setHasPermission(status === "granted");
-      handleBarCodeScanned({});
     })();
   }, []);
 

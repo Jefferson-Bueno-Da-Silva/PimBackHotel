@@ -11,7 +11,6 @@ const Home = () => {
   const rooms = useRooms();
 
   const [value, setValue] = useState();
-  const [list, setList] = useState(rooms.getRooms);
 
   useEffect(() => {
     (async () => {
@@ -19,36 +18,23 @@ const Home = () => {
     })();
   }, []);
 
-  useEffect(
-    () => {
-      if (!!!value) {
-        setList(rooms.getRooms);
-      }
-    },
-    [value]
-  );
-
-  const onPressSearch = () => {
-    if (!!value) {
-      const filter = list.filter(item => {
-        return item.description
-          .toLowerCase()
-          .includes(value.toString().toLowerCase());
-      });
-
-      setList(filter);
-    }
-  };
-
   const navigateToDetails = item => {
     navigation.navigate("Details", item);
   };
 
   return (
     <View style={styles.container}>
-      <Header value={value} setValue={setValue} onPressSearch={onPressSearch} />
+      <Header value={value} setValue={setValue} onPressSearch={() => {}} />
       <FlatList
-        data={list}
+        data={
+          !!value
+            ? rooms.getRooms.filter(item => {
+                return item.description
+                  .toLowerCase()
+                  .includes(value.toString().toLowerCase());
+              })
+            : rooms.getRooms
+        }
         keyExtractor={hotelData => hotelData.id.toString()}
         ListHeaderComponent={() => <View style={styles.space} />}
         renderItem={({ item }) => (

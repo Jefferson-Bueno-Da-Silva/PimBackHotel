@@ -37,15 +37,4 @@ export default class Auth {
       payload: loginData
     });
   }
-
-  refreshUserProfile(userData) {
-    const { token, ...user } = userData;
-    this.authDispatch({
-      type: "setUserSession",
-      payload: {
-        token,
-        user
-      }
-    });
-  }
 }

@@ -16,7 +16,7 @@ export default class Rooms {
     return await getAll(params).then( async response => {
       await this.updateRoomsData(response.data)
       return response.data
-    }).catch(e => console.debug(e))
+    }).catch(e => console.error(e))
   };
 
   getRooms = useMemo(() => this.state.rooms, [this])

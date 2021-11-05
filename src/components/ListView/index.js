@@ -6,18 +6,10 @@ import { Octicons } from "@expo/vector-icons";
 
 import { styles } from "./styles";
 import { primary } from "../../styles/colors";
+import { formatDate } from "../../utils/formatDate";
 
 const ListView = ({ data, onPress, booking }) => {
   const { image, description, roomCategory } = data;
-
-  const formatDate = useCallback(
-    date => {
-      return `${new Date(date).getUTCDay()}/${new Date(
-        date
-      ).getUTCMonth()}/${new Date(date).getFullYear()}`;
-    },
-    [booking]
-  );
 
   return (
     <View style={styles.container}>

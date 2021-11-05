@@ -3,6 +3,7 @@ import { Text, View, TouchableOpacity, Platform } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { styles } from "../styles";
+import { formatDate } from "../../../utils/formatDate";
 
 const DateButton = ({ date, setDate }) => {
   const [mode, setMode] = useState("date");
@@ -30,7 +31,7 @@ const DateButton = ({ date, setDate }) => {
         onPress={showDatepicker}
       >
         <MaterialCommunityIcons name="calendar-blank" size={16} color="black" />
-        <Text style={styles.textButton}>{date.toDateString()}</Text>
+        <Text style={styles.textButton}>{formatDate(date)}</Text>
       </TouchableOpacity>
       <View>
         {show && (
