@@ -1,7 +1,17 @@
 import React, { useCallback, useRef, useState } from 'react';
 import { Image, Text, View } from 'react-native';
 
-import { styles } from './styles';
+import {
+    Container,
+    ImageContainer,
+    TextContainer,
+    Title,
+    SubTitle,
+    ButtonsContainer,
+    TermsContainer,
+    TermsText,
+    TermsTextLink,
+} from './styles';
 
 import { logo } from '../../assets';
 import { fonts } from '../../styles/fonts';
@@ -11,22 +21,23 @@ import { IHandles } from 'react-native-modalize/lib/options';
 const Principal = () => {
     const modalizeRef = useRef<IHandles>(null);
     const [route, setRoute] = useState('');
+
     const handleLogin = useCallback(() => {
         modalizeRef.current?.open();
     }, []);
 
     return (
-        <View style={styles.container}>
-            <View style={styles.imageContainer}>
+        <Container>
+            <ImageContainer>
                 <Image source={logo} />
-            </View>
+            </ImageContainer>
 
-            <View style={styles.textContainer}>
-                <Text style={[fonts.subTitleLarge, styles.title]}>Bem Vindo</Text>
-                <Text style={[fonts.captionRegular, styles.subTitle]}>Faça o login ou crie sua conta</Text>
-            </View>
+            <TextContainer>
+                <Title>Bem Vindo</Title>
+                <SubTitle>Faça o login ou crie sua conta</SubTitle>
+            </TextContainer>
 
-            <View style={styles.buttonsContainer}>
+            <ButtonsContainer>
                 <LargeButton
                     buttonText='Criar conta'
                     onPress={() => {
@@ -42,19 +53,20 @@ const Principal = () => {
                         setRoute('register');
                     }}
                 />
-            </View>
+            </ButtonsContainer>
 
-            <View style={styles.termsContainer}>
-                <Text style={[fonts.tiny, styles.termsText]}>
-                    Ao fazer o login ou cadastro, você aceita os
-                    <Text style={styles.termsTextLink}> Termos e {'\n'} Condições </Text>E
-                    <Text style={styles.termsTextLink}> Politica de Privacidade. </Text>
-                </Text>
-            </View>
+            <TermsContainer>
+                <TermsText>
+                    Ao fazer o cadastro, você aceita os
+                    <TermsTextLink> Termos e Condições </TermsTextLink>E
+                    <TermsTextLink> Politica de Privacidade. </TermsTextLink>
+                </TermsText>
+            </TermsContainer>
+
             <DragDropModal ref={modalizeRef}>
                 <SingUp routeName={route} />
             </DragDropModal>
-        </View>
+        </Container>
     );
 };
 
