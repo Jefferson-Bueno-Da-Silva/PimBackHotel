@@ -1,12 +1,13 @@
-import { StyleSheet } from "react-native";
-import { primary } from "../../styles/colors";
+import { StyleSheet, View } from 'react-native';
+import { primary } from '../../styles/colors';
 
-export const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  },
-  body: {
-    flex: 1,
-    padding: 16
-  }
-});
+import styled from 'styled-components/native';
+
+export const Container = styled.View`
+    flex: 1;
+`;
+
+export const Body = styled(View)`
+    flex: 1;
+    padding: 16px;
+`;

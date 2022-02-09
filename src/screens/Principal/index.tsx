@@ -17,10 +17,11 @@ import { logo } from '../../assets';
 import { fonts } from '../../styles/fonts';
 import { DragDropModal, LargeButton, SingUp } from '../../components';
 import { IHandles } from 'react-native-modalize/lib/options';
+import { SingUpRoutes } from '../../interfaces';
 
 const Principal = () => {
     const modalizeRef = useRef<IHandles>(null);
-    const [route, setRoute] = useState('');
+    const [route, setRoute] = useState<SingUpRoutes>();
 
     const handleLogin = useCallback(() => {
         modalizeRef.current?.open();
@@ -42,7 +43,7 @@ const Principal = () => {
                     buttonText='Criar conta'
                     onPress={() => {
                         handleLogin();
-                        setRoute('login');
+                        setRoute(SingUpRoutes.register);
                     }}
                 />
                 <LargeButton
@@ -50,7 +51,7 @@ const Principal = () => {
                     secondary
                     onPress={() => {
                         handleLogin();
-                        setRoute('register');
+                        setRoute(SingUpRoutes.login);
                     }}
                 />
             </ButtonsContainer>

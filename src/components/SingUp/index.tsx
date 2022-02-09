@@ -1,22 +1,21 @@
-import React, { useState } from "react";
-import { Text, View } from "react-native";
-import TabNavigationModal from "../TabNavigationModal";
+import React, { useState } from 'react';
+import TabNavigationModal from '../TabNavigationModal';
 
-import Login from "../../screens/Login";
-import Register from "../../screens/Register";
+import Login from '../../screens/Login';
+import Register from '../../screens/Register';
 
-import { styles } from "./styles";
-import { fonts } from "../../styles/fonts";
+import { Body, Container } from './styles';
+import { SingUpRoutes } from '../../interfaces';
 
-const SingUp = ({ routeName }) => {
-  const [active, setActive] = useState(routeName === "login" ? true : false);
+const SingUp: React.FC<{ routeName: SingUpRoutes }> = ({ routeName }) => {
+    const [active, setActive] = useState<SingUpRoutes>(routeName);
 
-  return (
-    <View style={styles.container}>
-      <TabNavigationModal active={active} setActive={setActive} />
-      <View style={styles.body}>{active ? <Register /> : <Login />}</View>
-    </View>
-  );
+    return (
+        <Container>
+            <TabNavigationModal active={active} setActive={setActive} />
+            <Body>{active ? <Register /> : <Login />}</Body>
+        </Container>
+    );
 };
 
 export default SingUp;
