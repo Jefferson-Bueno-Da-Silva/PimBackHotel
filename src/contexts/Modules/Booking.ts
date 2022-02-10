@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import { Alert } from 'react-native';
+import { IBooking } from '../../interfaces';
 import {
     bodyReserves,
     BookingResponse,
@@ -8,51 +9,57 @@ import {
     create,
     bodyCheckin,
     checkin,
+    createResponse,
 } from '../../services/api/reserves';
 import { BookingActions, BookingState } from '../reducers/BookingReducer';
 
-export default class Booking {
+export default class Booking implements IBooking {
     constructor(private state: BookingState, private dispatch: React.Dispatch<BookingActions>) {}
 
-    getAll = async (params: params) => {
-        return await getAll(params)
-            .then(async (response) => {
-                await this.updateBookingsData(response.data);
-                return response.data;
-            })
-            .catch((e) => console.error(e));
-    };
+    async getAll(params: params): Promise<BookingResponse[]> {
+        try {
+            const response = await getAll(params);
+            this.updateBookingsData(response.data);
+            return response.data;
+        } catch (e) {
+            console.error(e);
+            return null;
+        }
+    }
 
-    create = async (body: bodyReserves) => {
-        return await create(body)
-            .then((response) => {
-                return response;
-            })
-            .catch((e) => {
-                console.error(e);
-                Alert.alert('Erro', 'Ocorreu um erro inesperado, tente novamente mais tarde');
-                return e;
-            });
-    };
+    async create(body: bodyReserves): Promise<createResponse> {
+        try {
+            const response = await create(body);
+            return response.data;
+        } catch (e) {
+            console.error(e);
+            Alert.alert('Erro', 'Ocorreu um erro inesperado, tente novamente mais tarde');
+            return null;
+        }
+    }
 
-    checkin = async (id: number, body: bodyCheckin) => {
-        return await checkin(id, body)
-            .then((response) => {
-                return response;
-            })
-            .catch((e) => {
-                console.error(e.message);
-                Alert.alert('Erro', 'Ocorreu um erro inesperado, tente novamente mais tarde');
-                return e;
-            });
-    };
+    async checkin(id: number, body: bodyCheckin): Promise<bodyCheckin> {
+        try {
+            const response = await checkin(id, body);
+            return response.data;
+        } catch (e) {
+            console.error(e.message);
+            Alert.alert('Erro', 'Ocorreu um erro inesperado, tente novamente mais tarde');
+            return e;
+        }
+    }
 
-    // Get's
-    getIdSelected = useMemo(() => this.state.idSelected, [this]);
-    getRooms = useMemo(() => this.state.rooms, [this]);
+    // // Get's
+    public get getIdSelected(): number {
+        return this.state.idSelected;
+    }
 
-    // Set's
-    async updateBookingsData(rooms: BookingResponse[]) {
+    public get getRooms(): BookingResponse[] {
+        return this.state.rooms;
+    }
+
+    // // Set's
+    updateBookingsData(rooms: BookingResponse[]): void {
         this.dispatch({
             type: 'updateBookingsData',
             payload: {
@@ -60,13 +67,12 @@ export default class Booking {
             },
         });
     }
-
-    setIdSelected = (id: number) => {
+    setIdSelected(id: number): void {
         this.dispatch({
             type: 'setIdSelected',
             payload: {
                 idSelected: id,
             },
         });
-    };
+    }
 }

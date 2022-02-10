@@ -5,7 +5,7 @@ import { DatePicker, LargeButton, Picker } from '../../components';
 import { hotelData } from '../../utils/apiMock';
 
 import { styles } from './styles';
-import { useBookings } from '../../contexts';
+import { useBookings } from '../../contexts/hooks/Booking.hook';
 import { useAuth } from '../../contexts/hooks';
 
 const Reserve = ({ route }) => {
@@ -25,7 +25,8 @@ const Reserve = ({ route }) => {
             id_quarto: route?.params.id,
             id_user: auth.authState.user.id,
         });
-        if (!!response.status && response.status === 201) {
+
+        if (response) {
             navigation.navigate('Finished', {
                 text: 'Quando chegar no Hotel, faça o check-in pelo celular lendo o QR code.',
             });

@@ -6,8 +6,9 @@ import { Background } from './src/screens';
 
 import { NavigationContainer } from '@react-navigation/native';
 import Routes from './src/routes/routes';
-import { AppProvider } from './src/contexts';
 import { AuthProvider } from './src/contexts/Auth.Context';
+import { RoomsProvider } from './src/contexts/Rooms.Context';
+import { BookingProvider } from './src/contexts/Booking.Context';
 
 export default function App() {
     const [fontsLoaded] = useFonts({
@@ -21,14 +22,16 @@ export default function App() {
     }
 
     return (
-        <AppProvider>
-            <AuthProvider>
-                <NavigationContainer>
-                    <Background>
-                        <Routes />
-                    </Background>
-                </NavigationContainer>
-            </AuthProvider>
-        </AppProvider>
+        <AuthProvider>
+            <RoomsProvider>
+                <BookingProvider>
+                    <NavigationContainer>
+                        <Background>
+                            <Routes />
+                        </Background>
+                    </NavigationContainer>
+                </BookingProvider>
+            </RoomsProvider>
+        </AuthProvider>
     );
 }

@@ -5,7 +5,7 @@ import { signIn, register, LoginRequest, LoginResponse, RegisterRequest } from '
 import { AuthActions, AuthState } from '../reducers/AuthReducer';
 
 class Auth implements IAuth {
-    constructor(private authState: AuthState, private authDispatch: React.Dispatch<AuthActions>) {}
+    constructor(public authState: AuthState, private authDispatch: React.Dispatch<AuthActions>) {}
 
     async signIn(loginData: LoginRequest): Promise<LoginResponse> {
         return signIn(loginData)
