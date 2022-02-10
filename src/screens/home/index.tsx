@@ -1,16 +1,18 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { View, FlatList } from 'react-native';
 import { Header, ListView } from '../../components';
 import { useNavigation } from '@react-navigation/core';
 
 import { styles } from './styles';
 import { useRooms } from '../../contexts/hooks/Rooms.hook';
+import { RoomsResponse } from '../../services/api/rooms';
+import { NavigationRouteStack } from '../../interfaces/Stack/PrivateRoutes.interface';
 
-const Home = () => {
-    const navigation = useNavigation();
+const Home: React.FC = () => {
+    const navigation = useNavigation<NavigationRouteStack>();
     const rooms = useRooms();
 
-    const [value, setValue] = useState();
+    const [value, setValue] = useState<string>('');
 
     useEffect(() => {
         (async () => {
@@ -18,24 +20,33 @@ const Home = () => {
         })();
     }, []);
 
-    const navigateToDetails = (item) => {
+    const navigateToDetails = (item: RoomsResponse) => {
         navigation.navigate('Details', item);
     };
 
+    const roomsList = useMemo(
+        () =>
+            !!value
+                ? rooms
+                      .getRooms()
+                      .filter(
+                          (item) =>
+                              item.description &&
+                              item.description.toLowerCase().includes(value.toString().toLowerCase()),
+                      )
+                : rooms.getRooms(),
+
+        [rooms, value],
+    );
+
     return (
         <View style={styles.container}>
-            <Header value={value} setValue={setValue} onPressSearch={() => {}} />
+            <Header value={value} setValue={setValue} />
             <FlatList
-                data={
-                    !!value
-                        ? rooms.getRooms().filter((item) => {
-                              return item.description.toLowerCase().includes(value.toString().toLowerCase());
-                          })
-                        : rooms.getRooms()
-                }
+                data={roomsList}
                 keyExtractor={(hotelData) => hotelData.id.toString()}
                 ListHeaderComponent={() => <View style={styles.space} />}
-                renderItem={({ item }) => <ListView data={item} onPress={() => navigateToDetails(item)} />}
+                renderItem={({ item }) => <ListView room={item} onPress={() => navigateToDetails(item)} />}
                 style={styles.flatList}
             />
         </View>

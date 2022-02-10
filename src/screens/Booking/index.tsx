@@ -5,11 +5,12 @@ import { ListView } from '../../components';
 
 import { styles } from './styles';
 import { useBookings } from '../../contexts/hooks/Booking.hook';
+import { NavigationRouteStack } from '../../interfaces/Stack/PrivateRoutes.interface';
 
 const Booking = () => {
     const booking = useBookings();
+    const navigation = useNavigation<NavigationRouteStack>();
 
-    const navigation = useNavigation();
     const moveToCodeScanner = (id) => {
         booking.setIdSelected(id);
         navigation.navigate('CodeScanner');
@@ -29,7 +30,7 @@ const Booking = () => {
                 keyExtractor={(hotelData) => hotelData.id_reserva.toString()}
                 ListHeaderComponent={() => <View style={styles.space} />}
                 renderItem={({ item }) => (
-                    <ListView data={item.room} booking={item} onPress={() => moveToCodeScanner(item.id_reserva)} />
+                    <ListView room={item.room} booking={item} onPress={() => moveToCodeScanner(item.id_reserva)} />
                 )}
             />
         </View>
