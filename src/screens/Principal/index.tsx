@@ -1,5 +1,5 @@
 import React, { useCallback, useRef, useState } from 'react';
-import { Image, Text, View } from 'react-native';
+import { Image } from 'react-native';
 
 import {
     Container,
@@ -14,7 +14,6 @@ import {
 } from './styles';
 
 import { logo } from '../../assets';
-import { fonts } from '../../styles/fonts';
 import { DragDropModal, LargeButton, SingUp } from '../../components';
 import { IHandles } from 'react-native-modalize/lib/options';
 import { SingUpRoutes } from '../../interfaces';
