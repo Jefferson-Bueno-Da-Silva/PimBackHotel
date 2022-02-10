@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import LargeButton from '../../components/LargeButton';
 import InputLabel from '../../components/InputLabel';
 import { useAuth } from '../../contexts/hooks';
@@ -10,15 +10,17 @@ const Register = () => {
     const [email, setEmailText] = useState('');
     const [password, setPassword] = useState('');
 
-    const _onChangeTextFull_name = (text) => {
+    const _onChangeTextFull_name = useCallback((text: string) => {
         setFull_name(text);
-    };
-    const _onChangeTextEmail = (text) => {
+    }, []);
+
+    const _onChangeTextEmail = useCallback((text: string) => {
         setEmailText(text);
-    };
-    const _onChangeTextPassword = (text) => {
+    }, []);
+
+    const _onChangeTextPassword = useCallback((text: string) => {
         setPassword(text);
-    };
+    }, []);
 
     const handleLogin = async () => {
         const data = await auth.register({ name: full_name, email, password });
