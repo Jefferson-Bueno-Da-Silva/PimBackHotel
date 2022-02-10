@@ -1,76 +1,63 @@
-import React, { useCallback } from "react";
-import { Text, View, Image, TouchableOpacity } from "react-native";
+import React, { useCallback } from 'react';
+import { Text, View, Image, TouchableOpacity } from 'react-native';
 
-import { Entypo } from "@expo/vector-icons";
-import { Octicons } from "@expo/vector-icons";
+import { Entypo } from '@expo/vector-icons';
+import { Octicons } from '@expo/vector-icons';
 
-import { styles } from "./styles";
-import { primary } from "../../styles/colors";
-import { formatDate } from "../../utils/formatDate";
+import { Button, ButtonText, Container, FooterContainer, Location, LocationContainer, Template, Title } from './styles';
+import { primary } from '../../styles/colors';
+import { formatDate } from '../../utils/formatDate';
+import { RoomsResponse } from '../../services/api/rooms';
+import { BookingResponse } from '../../services/api/reserves';
+import { shadow } from '../../styles/shadow';
 
-const ListView = ({ data, onPress, booking }) => {
-  const { image, description, roomCategory } = data;
+export type ListViewProps = {
+    room: RoomsResponse;
+    booking?: BookingResponse;
+    onPress(): void;
+};
 
-  return (
-    <View style={styles.container}>
-      <Image source={{ uri: image }} style={styles.image} />
+const ListView: React.FC<ListViewProps> = ({ room, booking, onPress }) => {
+    const { image, description, roomCategory } = room;
 
-      <View style={styles.dataContainer}>
-        <Text style={styles.title}>{description}</Text>
+    return (
+        <Container style={shadow.shadow8}>
+            <Template source={{ uri: image }} />
 
-        <View style={styles.footerContainer}>
-          <View style={styles.locationContainer}>
-            {!!booking && (
-              <View style={{ flex: 1 }}>
-                <View style={styles.locationContainer}>
-                  <Octicons
-                    name="sign-in"
-                    size={18}
-                    color="black"
-                    style={{ marginRight: 8 }}
-                  />
-                  <Text style={styles.location}>
-                    {formatDate(booking.data_entrada)}
-                  </Text>
-                </View>
+            <View>
+                <Title>{description}</Title>
 
-                <View style={styles.locationContainer}>
-                  <Octicons
-                    name="sign-out"
-                    size={18}
-                    color="black"
-                    style={{ marginRight: 8 }}
-                  />
-                  <Text style={styles.location}>
-                    {formatDate(booking.data_saida)}
-                  </Text>
-                </View>
-              </View>
-            )}
+                <FooterContainer>
+                    <LocationContainer>
+                        {!!booking && (
+                            <View style={{ flex: 1 }}>
+                                <LocationContainer>
+                                    <Octicons name='sign-in' size={18} color='black' style={{ marginRight: 8 }} />
+                                    <Location>{formatDate(booking.data_entrada)}</Location>
+                                </LocationContainer>
 
-            {!!roomCategory && (
-              <>
-                <Entypo
-                  name="location-pin"
-                  size={15}
-                  color={primary.ChineseBlack}
-                />
-                <Text style={styles.location}>{roomCategory.categoryName}</Text>
-              </>
-            )}
-          </View>
+                                <LocationContainer>
+                                    <Octicons name='sign-out' size={18} color='black' style={{ marginRight: 8 }} />
+                                    <Location>{formatDate(booking.data_saida)}</Location>
+                                </LocationContainer>
+                            </View>
+                        )}
 
-          <TouchableOpacity
-            activeOpacity={0.5}
-            style={styles.button}
-            onPress={onPress}
-          >
-            <Text style={styles.buttonText}>Visualizar</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-    </View>
-  );
+                        {!!roomCategory && (
+                            <>
+                                <Entypo name='location-pin' size={15} color={primary.ChineseBlack} />
+                                <Location>{roomCategory.categoryName}</Location>
+                            </>
+                        )}
+                    </LocationContainer>
+
+                    <Button activeOpacity={0.5} onPress={onPress}>
+                        <ButtonText>Visualizar</ButtonText>
+                    </Button>
+                </FooterContainer>
+            </View>
+        </Container>
+    );
 };
 
 export default ListView;

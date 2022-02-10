@@ -1,59 +1,58 @@
-import { StyleSheet } from "react-native";
-import { primary } from "../../styles/colors";
-import { fonts } from "../../styles/fonts";
-import { shadow } from "../../styles/shadow";
+import { Image, StyleSheet, TouchableOpacity, TouchableOpacityProps, View } from 'react-native';
+import { primary } from '../../styles/colors';
+import { CaptionBold, fonts, Tiny, TinyBold } from '../../styles/fonts';
 
-export const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: "row",
-    zIndex: 1000,
-    borderRadius: 10,
-    backgroundColor: primary.White,
-    marginHorizontal: 16,
-    marginVertical: 8,
-    paddingVertical: 16,
-    paddingHorizontal: 12,
-    alignItems: "center",
-    justifyContent: "space-between",
-    ...shadow.shadow8
-  },
-  image: {
-    width: 60,
-    height: 60,
-    borderRadius: 8
-  },
-  dataContainer: {},
-  footerContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    backgroundColor: "transparent"
-  },
-  title: {
-    ...fonts.captionBold,
-    color: primary.ChineseBlack,
-    backgroundColor: "transparent"
-  },
-  locationContainer: {
-    flexDirection: "row",
-    width: "50%",
-    backgroundColor: "transparent"
-  },
-  location: {
-    ...fonts.tiny,
-    color: primary.DarkCharcoal,
-    backgroundColor: "transparent"
-  },
-  button: {
-    backgroundColor: primary.ChineseBlack,
-    width: 84,
-    height: 34,
-    alignItems: "center",
-    justifyContent: "center",
-    borderRadius: 8
-  },
-  buttonText: {
-    ...fonts.tinyBold,
-    color: primary.Lotion
-  }
-});
+import styled from 'styled-components/native';
+import React from 'react';
+
+export const Container = styled(View)`
+    flex: 1;
+    flex-direction: row;
+    z-index: 1000;
+    border-radius: 10px;
+    background-color: ${primary.White};
+    margin: 8px 16px 8px 16px;
+    padding: 12px 16px 12px 16px;
+    align-items: center;
+    justify-content: space-between;
+`;
+
+export const Template = styled(Image)`
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+`;
+
+export const FooterContainer = styled(View)`
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: transparent;
+`;
+
+export const Title = styled(CaptionBold)`
+    color: ${primary.ChineseBlack};
+    background-color: transparent;
+`;
+
+export const LocationContainer = styled(View)`
+    flex-direction: row;
+    width: 50%;
+    background-color: transparent;
+`;
+export const Location = styled(Tiny)`
+    color: ${primary.DarkCharcoal};
+    background-color: transparent;
+`;
+
+export const Button: React.FC<TouchableOpacityProps> = styled(TouchableOpacity)`
+    background-color: ${primary.ChineseBlack};
+    width: 84px;
+    height: 34px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+`;
+
+export const ButtonText = styled(TinyBold)`
+    color: ${primary.Lotion};
+`;
