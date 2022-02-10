@@ -5,18 +5,17 @@ import { Text, View, TextInput, TouchableOpacity } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 
 // styles
-import { styles } from './styles';
+import { Container, InputSearch } from './styles';
 import { primary } from '../../styles/colors';
+import { shadow } from '../../styles/shadow';
 
-const Input = ({value, setValue, onPress}) => {
-  return (
-    <View style={styles.container} >
-      <TextInput style={styles.input} placeholder="Encontre aqui !" value={value} onChangeText={setValue} />
-      <TouchableOpacity activeOpacity={0.5} onPress={onPress} >
-        <FontAwesome5 name="search" size={20} color={primary.ChineseBlack} />
-      </TouchableOpacity>
-    </View>
-  );
-}
+const Input = ({ value, setValue }) => {
+    return (
+        <Container style={shadow.shadow5}>
+            <InputSearch placeholder='Encontre aqui !' value={value} onChangeText={setValue} />
+            <FontAwesome5 name='search' size={20} color={primary.ChineseBlack} />
+        </Container>
+    );
+};
 
 export default Input;
