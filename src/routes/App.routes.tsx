@@ -4,8 +4,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Details, Reserve, Finished, CodeScanner } from '../screens';
 import { HeaderStack } from '../components';
 import bottomTab from './bottomTab.routes';
+import { RootStackParamList } from '../interfaces/Stack/PrivateRoutes.interface';
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const PrivateRoutes = () => {
     return (
