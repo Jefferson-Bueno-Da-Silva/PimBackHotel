@@ -1,15 +1,15 @@
-import { StyleSheet } from "react-native";
-import { primary } from "../../styles/colors";
+import { StyleSheet, Text, TextInput } from 'react-native';
+import { primary } from '../../styles/colors';
 
-export const styles = StyleSheet.create({
-  input: {
-    height: 48,
-    padding: 12,
+import styled from 'styled-components/native';
+import { MediumSemiBold } from '../../styles/fonts';
 
-    borderWidth: 1,
-    borderRadius: 12,
-    borderColor: primary.CadetGrey,
+export const Input = styled(TextInput)`
+    height: 48px;
+    padding: 12px;
 
-    marginBottom: 16
-  }
-});
+    border-width: 1px;
+    border-radius: 12px;
+    border-color: ${primary.CadetGrey};
+    margin-bottom: 16px;
+`;
