@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import LargeButton from '../../components/LargeButton';
 import InputLabel from '../../components/InputLabel';
-import { useAuth } from '../../contexts/hooks';
+import { useAuth } from '../../hooks';
 
 const Register = () => {
     const auth = useAuth();

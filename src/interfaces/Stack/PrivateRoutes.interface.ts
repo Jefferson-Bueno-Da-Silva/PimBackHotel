@@ -4,8 +4,8 @@ import { RoomsResponse } from '../../services/api/rooms';
 export type RootStackParamList = {
     Home: undefined;
     Details: RoomsResponse;
-    Reserve: undefined;
-    Finished: undefined;
+    Reserve: RoomsResponse;
+    Finished: { text: string };
     CodeScanner: undefined;
 };
 

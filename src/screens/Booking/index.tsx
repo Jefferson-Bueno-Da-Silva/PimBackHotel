@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import { ListView } from '../../components';
 
 import { styles } from './styles';
-import { useBookings } from '../../contexts/hooks/Booking.hook';
+import { useBookings } from '../../hooks';
 import { NavigationRouteStack } from '../../interfaces/Stack/PrivateRoutes.interface';
 
 const Booking = () => {

@@ -4,10 +4,11 @@ import { Text, View, StyleSheet, Button, Alert } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 
 import { styles } from './styles';
-import { useBookings } from '../../contexts/hooks/Booking.hook';
+import { useBookings } from '../../hooks';
+import { NavigationRouteStack } from '../../interfaces/Stack/PrivateRoutes.interface';
 
 export default function CodeScanner() {
-    const { navigate } = useNavigation();
+    const { navigate } = useNavigation<NavigationRouteStack>();
     const booking = useBookings();
 
     const [hasPermission, setHasPermission] = useState(null);

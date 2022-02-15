@@ -2,14 +2,13 @@ import React, { useCallback, useState } from 'react';
 import { View } from 'react-native';
 import { useNavigation } from '@react-navigation/core';
 import { DatePicker, LargeButton, Picker } from '../../components';
-import { hotelData } from '../../utils/apiMock';
 
 import { styles } from './styles';
-import { useBookings } from '../../contexts/hooks/Booking.hook';
-import { useAuth } from '../../contexts/hooks';
+import { useAuth, useBookings } from '../../hooks';
+import { NavigationRouteStack } from '../../interfaces/Stack/PrivateRoutes.interface';
 
 const Reserve = ({ route }) => {
-    const navigation = useNavigation();
+    const navigation = useNavigation<NavigationRouteStack>();
     const auth = useAuth();
     const booking = useBookings();
 

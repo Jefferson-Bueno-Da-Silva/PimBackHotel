@@ -4,7 +4,7 @@ import { Header, ListView } from '../../components';
 import { useNavigation } from '@react-navigation/core';
 
 import { styles } from './styles';
-import { useRooms } from '../../contexts/hooks/Rooms.hook';
+import { useRooms } from '../../hooks';
 import { RoomsResponse } from '../../services/api/rooms';
 import { NavigationRouteStack } from '../../interfaces/Stack/PrivateRoutes.interface';
 

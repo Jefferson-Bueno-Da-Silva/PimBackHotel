@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import Auth from './Auth.routes';
 import PrivateRoutes from './App.routes';
-import { useAuth } from '../contexts/hooks';
+import { useAuth } from '../hooks';
 
 const Routes: React.FC = () => {
     const authContext = useAuth();
