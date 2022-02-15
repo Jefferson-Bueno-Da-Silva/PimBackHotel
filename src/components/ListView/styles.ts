@@ -6,7 +6,6 @@ import styled from 'styled-components/native';
 import React from 'react';
 
 export const Container = styled(View)`
-    flex: 1;
     flex-direction: row;
     z-index: 1000;
     border-radius: 10px;

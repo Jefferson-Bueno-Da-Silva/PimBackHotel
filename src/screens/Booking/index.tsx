@@ -3,7 +3,7 @@ import { FlatList, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { ListView } from '../../components';
 
-import { styles } from './styles';
+import { Container, Space } from './styles';
 import { useBookings } from '../../hooks';
 import { NavigationRouteStack } from '../../interfaces/Stack/PrivateRoutes.interface';
 
@@ -24,16 +24,16 @@ const Booking = () => {
     }, [navigation]);
 
     return (
-        <View style={styles.container}>
+        <Container>
             <FlatList
                 data={booking.getRooms}
                 keyExtractor={(hotelData) => hotelData.id_reserva.toString()}
-                ListHeaderComponent={() => <View style={styles.space} />}
+                ListHeaderComponent={() => <Space />}
                 renderItem={({ item }) => (
                     <ListView room={item.room} booking={item} onPress={() => moveToCodeScanner(item.id_reserva)} />
                 )}
             />
-        </View>
+        </Container>
     );
 };
 
