@@ -1,33 +1,25 @@
-import { StyleSheet } from "react-native";
-import { primary } from "../../styles/colors";
-import { fonts } from "../../styles/fonts";
-import { shadow } from "../../styles/shadow";
+import React from 'react';
+import styled from 'styled-components/native';
+import { TouchableOpacity, TouchableOpacityProps, View } from 'react-native';
+import { primary } from '../../styles/colors';
+import { CaptionSemiBold, fonts } from '../../styles/fonts';
 
-export const styles = StyleSheet.create({
-  container: {
-    height: 100,
-    marginTop: 16,
-    marginHorizontal: 16,
-    backgroundColor: primary.Lotion,
-    borderRadius: 5,
-    ...shadow.shadow5
-  },
-  line: {
-    height: 1,
-    width: '100%',
-    backgroundColor: primary.CadetGrey,
-  },
-  button: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-    paddingHorizontal: 16,
-  },
-  textButton: {
-    ...fonts.captionSemiBold,
-    color: primary.DarkCharcoal,
-    paddingHorizontal: 16,
-  },
+export const Container = styled(View)`
+    height: 100px;
+    margin: 16px 16px 0px 16px;
+    background-color: ${primary.Lotion};
+    border-radius: 5px;
+`;
 
-})
+export const Button: React.FC<TouchableOpacityProps> = styled(TouchableOpacity)`
+    flex: 1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0px 16px 0px 16px;
+`;
+
+export const TextButton = styled(CaptionSemiBold)`
+    color: ${primary.DarkCharcoal};
+    padding: 0px 16px 0px 16px;
+`;

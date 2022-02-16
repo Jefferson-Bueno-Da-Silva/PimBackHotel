@@ -1,14 +1,14 @@
 import React from 'react';
 import { MediumSemiBold } from '../../styles/fonts';
 
-import { Input } from './styles';
+import { ContainerInput, Input } from './styles';
 
 const InputLabel = ({ label, ...rest }) => {
     return (
-        <>
+        <ContainerInput>
             <MediumSemiBold>{label}</MediumSemiBold>
             <Input {...rest} />
-        </>
+        </ContainerInput>
     );
 };
 

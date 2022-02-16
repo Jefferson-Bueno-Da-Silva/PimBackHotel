@@ -1,13 +1,13 @@
-import React from 'react'
-import { Image, View } from 'react-native'
-import { shadow } from '../../styles/shadow'
+import React from 'react';
+import { View } from 'react-native';
+import { shadow } from '../../styles/shadow';
 
-import { styles } from './styles'
+import { Container, Profile } from './styles';
 
 export const sizeTypeProp = {
-  small: 48,
-  medium: 58,
-}
+    small: 48,
+    medium: 58,
+};
 
 /**
  * Retorna o Avatar
@@ -15,19 +15,16 @@ export const sizeTypeProp = {
  * @returns
  */
 const Avatar = ({ sizeType, profile }) => {
-  return (
-    <View style={styles.container}>
-      <View style={{...shadow.shadow8, backgroundColor: 'transparent', borderRadius: 20}}>
-        <Image
-          source={{uri: profile}}
-          style={[
-            styles.profile,
-            { height: sizeTypeProp[sizeType], width: sizeTypeProp[sizeType] },
-          ]}
-        />
-      </View>
-    </View>
-  )
-}
+    return (
+        <Container>
+            <View style={{ ...shadow.shadow8, backgroundColor: 'transparent', borderRadius: 20 }}>
+                <Profile
+                    source={{ uri: profile }}
+                    style={{ height: sizeTypeProp[sizeType], width: sizeTypeProp[sizeType] }}
+                />
+            </View>
+        </Container>
+    );
+};
 
-export default Avatar
+export default Avatar;

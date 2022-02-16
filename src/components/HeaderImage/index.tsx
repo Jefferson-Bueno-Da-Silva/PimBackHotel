@@ -1,19 +1,14 @@
-import React from 'react'
-import { ImageBackground, Text } from 'react-native'
+import React from 'react';
+import { shadow } from '../../styles/shadow';
 
-import { styles } from './styles'
+import { Container, styles, Title } from './styles';
 
 const HeaderImage = ({ imageUri, title }) => {
-  return (
-    <ImageBackground
-      source={{ uri: imageUri }}
-      style={styles.container}
-      imageStyle={styles.imageSource}
-      resizeMode="cover"
-    >
-      <Text style={styles.title}>{title}</Text>
-    </ImageBackground>
-  )
-}
+    return (
+        <Container source={{ uri: imageUri }} style={shadow.shadow5} imageStyle={styles.imageSource} resizeMode='cover'>
+            <Title>{title}</Title>
+        </Container>
+    );
+};
 
-export default HeaderImage
+export default HeaderImage;

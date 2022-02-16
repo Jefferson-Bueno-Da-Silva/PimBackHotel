@@ -1,18 +1,16 @@
-import { StyleSheet } from "react-native";
-import { getStatusBarHeight } from "react-native-iphone-x-helper";
-import { primary } from "../../styles/colors";
-import { shadow } from "../../styles/shadow";
+import styled from 'styled-components/native';
+import { getStatusBarHeight } from 'react-native-iphone-x-helper';
+import { primary } from '../../styles/colors';
+import { shadow } from '../../styles/shadow';
+import { View } from 'react-native';
 
-export const styles = StyleSheet.create({
-  container: {
-    width: "100%",
-    height: 68 + getStatusBarHeight(),
-    paddingTop: getStatusBarHeight(),
-    backgroundColor: primary.Lotion,
-    borderBottomLeftRadius: 16,
-    borderBottomRightRadius: 16,
-    alignItems:'center',
-    justifyContent: 'center',
-    ...shadow.shadow8
-  },
-})
+export const Container = styled(View)`
+    width: 100%;
+    height: ${68 + getStatusBarHeight()}px;
+    padding-top: ${getStatusBarHeight()}px;
+    background-color: ${primary.Lotion};
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    align-items: center;
+    justify-content: center;
+`;

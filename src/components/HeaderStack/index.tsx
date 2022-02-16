@@ -1,15 +1,14 @@
 import React from 'react';
-import { Text, View } from 'react-native';
-import { fonts } from '../../styles/fonts';
+import { CaptionBold, fonts } from '../../styles/fonts';
+import { shadow } from '../../styles/shadow';
+import { Container } from './styles';
 
-import { styles } from './styles';
-
-const HeaderStack = ({text}) => {
-  return (
-    <View style={styles.container}>
-      <Text style={fonts.captionBold}>{text}</Text>
-    </View>
-  );
-}
+const HeaderStack = ({ text }) => {
+    return (
+        <Container style={shadow.shadow8}>
+            <CaptionBold>{text}</CaptionBold>
+        </Container>
+    );
+};
 
 export default HeaderStack;

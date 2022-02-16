@@ -1,6 +1,5 @@
-import { StyleSheet, TextInput, TextInputProps } from 'react-native';
+import { TextInput, TextInputProps } from 'react-native';
 import { primary } from '../../styles/colors';
-import { shadow } from '../../styles/shadow';
 
 import styled from 'styled-components/native';
 import React from 'react';
@@ -18,7 +17,9 @@ export const Container = styled.View`
     background-color: ${primary.White};
 `;
 
-export const InputSearch: React.FC<TextInputProps> = styled(TextInput)`
+export const InputSearch: React.FC<TextInputProps> = styled(
+    TextInput
+)`
     color: ${primary.ChineseBlack};
     width: 92%;
 `;

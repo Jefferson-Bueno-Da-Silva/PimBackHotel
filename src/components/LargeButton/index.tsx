@@ -1,36 +1,42 @@
-import React from "react";
-import { GestureResponderEvent, Text, TouchableOpacity, View } from "react-native";
+import React from 'react';
+import {
+    GestureResponderEvent,
+    Text,
+    TouchableOpacity,
+    View,
+} from 'react-native';
+import { CaptionBold } from '../../styles/fonts';
 
-import { styles } from "./styles";
+import {
+    ButtonPrimaryOrSecondary,
+    ButtonPrimaryOrSecondaryText,
+    Container,
+} from './styles';
 
 export type LargeBUttonProps = {
-  onPress: (event: GestureResponderEvent) => void
-  buttonText: string,
-  secondary?: boolean
-}
+    onPress: (event: GestureResponderEvent) => void;
+    buttonText: string;
+    secondary?: boolean;
+};
 
-const LargeButton = ({ onPress, buttonText = "", secondary }: LargeBUttonProps) => {
-  return (
-    <View style={styles.container}>
-      <TouchableOpacity
-        style={[
-          styles.buttonContainer,
-          secondary ? styles.secondaryColor : styles.primaryColor
-        ]}
-        onPress={onPress}
-        activeOpacity={0.8}
-      >
-        <Text
-          style={[
-            styles.buttonText,
-            secondary ? styles.secondaryText : styles.primaryText
-          ]}
-        >
-          {buttonText}
-        </Text>
-      </TouchableOpacity>
-    </View>
-  );
+const LargeButton = ({
+    onPress,
+    buttonText = '',
+    secondary,
+}: LargeBUttonProps) => {
+    return (
+        <Container>
+            <ButtonPrimaryOrSecondary
+                isSecondary={secondary}
+                onPress={onPress}
+                activeOpacity={0.8}
+            >
+                <ButtonPrimaryOrSecondaryText isSecondary={secondary}>
+                    {buttonText}
+                </ButtonPrimaryOrSecondaryText>
+            </ButtonPrimaryOrSecondary>
+        </Container>
+    );
 };
 
 export default LargeButton;

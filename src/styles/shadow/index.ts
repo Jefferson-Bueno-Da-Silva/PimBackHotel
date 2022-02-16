@@ -1,5 +1,4 @@
 import { StyleSheet } from 'react-native';
-import { primary } from '../colors';
 
 export const shadow = StyleSheet.create({
     shadow5: {

@@ -1,25 +1,24 @@
-import { StyleSheet } from "react-native";
-import { primary } from "../../styles/colors";
-import { fonts } from "../../styles/fonts";
-import { shadow } from '../../styles/shadow';
+import styled from 'styled-components/native';
+import { ImageBackground, ImageBackgroundProps, StyleSheet } from 'react-native';
+import { primary } from '../../styles/colors';
+import { SubTitle } from '../../styles/fonts';
+import React from 'react';
+
+export const Container: React.FC<ImageBackgroundProps> = styled(ImageBackground)`
+    width: 100%;
+    height: 300px;
+    align-items: flex-start;
+    justify-content: flex-end;
+`;
+
+export const Title = styled(SubTitle)`
+    color: ${primary.White};
+    margin: 0px 16px 0px 16px;
+`;
 
 export const styles = StyleSheet.create({
-  container: {
-    width: '100%',
-    height: 300,
-
-    alignItems: "flex-start",
-    justifyContent: 'flex-end',
-
-    ...shadow.shadow5
-  },
-  imageSource: {
-    borderBottomRightRadius: 20,
-    borderBottomLeftRadius: 20,
-  },
-  title: {
-    ...fonts.subTitle,
-    color: primary.White,
-    marginHorizontal: 16,
-  },
-})
+    imageSource: {
+        borderBottomRightRadius: 20,
+        borderBottomLeftRadius: 20,
+    },
+});

@@ -1,16 +1,15 @@
-import { StyleSheet } from "react-native";
-import { primary } from "../../styles/colors";
-import { shadow } from "../../styles/shadow";
+import { Image, View } from 'react-native';
+import { primary } from '../../styles/colors';
+import styled from 'styled-components/native';
 
-export const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'flex-end',
-    justifyContent: 'center'
-  },
-  profile: {
-    borderRadius: 50,
-    borderColor: primary.ChineseBlack,
-    borderWidth: 1,
-  },
-})
+export const Container = styled(View)`
+    flex: 1;
+    align-items: flex-end;
+    justify-content: center;
+`;
+
+export const Profile = styled(Image)`
+    border-radius: 50;
+    border-color: ${primary.ChineseBlack};
+    border-width: 1;
+`;

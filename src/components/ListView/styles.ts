@@ -1,9 +1,13 @@
-import { Image, StyleSheet, TouchableOpacity, TouchableOpacityProps, View } from 'react-native';
-import { primary } from '../../styles/colors';
-import { CaptionBold, fonts, Tiny, TinyBold } from '../../styles/fonts';
-
-import styled from 'styled-components/native';
 import React from 'react';
+import styled from 'styled-components/native';
+import {
+    Image,
+    TouchableOpacity,
+    TouchableOpacityProps,
+    View,
+} from 'react-native';
+import { primary } from '../../styles/colors';
+import { CaptionBold, Tiny, TinyBold } from '../../styles/fonts';
 
 export const Container = styled(View)`
     flex-direction: row;
@@ -43,7 +47,9 @@ export const Location = styled(Tiny)`
     background-color: transparent;
 `;
 
-export const Button: React.FC<TouchableOpacityProps> = styled(TouchableOpacity)`
+export const Button: React.FC<TouchableOpacityProps> = styled(
+    TouchableOpacity
+)`
     background-color: ${primary.ChineseBlack};
     width: 84px;
     height: 34px;

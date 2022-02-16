@@ -1,7 +1,6 @@
 import React, { forwardRef, useState, useImperativeHandle } from 'react';
 
 // components
-import Avatar from '../Avatar';
 import Input from '../Input';
 
 // Styles

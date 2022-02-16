@@ -1,10 +1,12 @@
-import React from "react";
-import { View } from "react-native";
+import React from 'react';
+import styled from 'styled-components/native';
+import { View, ViewProps } from 'react-native';
+import { primary } from '../../styles/colors';
 
-import { styles } from "./styles";
-
-const Line = () => {
-  return <View style={styles.line} />;
-};
+const Line: React.FC<ViewProps> = styled(View)`
+    height: 1px;
+    width: 100%;
+    background-color: ${primary.CadetGrey};
+`;
 
 export default Line;
