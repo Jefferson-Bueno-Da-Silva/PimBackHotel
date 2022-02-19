@@ -5,7 +5,12 @@ import React, {
     useState,
 } from 'react';
 import { View, FlatList } from 'react-native';
-import { Background, Header, ListView } from '../../components';
+import {
+    Background,
+    EmptyListComponent,
+    Header,
+    ListView,
+} from '../../components';
 import { useNavigation } from '@react-navigation/core';
 
 import { Container } from './styles';
@@ -62,6 +67,11 @@ const Home: React.FC = () => {
                         onPress={() => navigateToDetails(item)}
                     />
                 )}
+                ListEmptyComponent={() =>
+                    !!value && (
+                        <EmptyListComponent title='Não encontramos nenhum quarto com esse nome :/' />
+                    )
+                }
             />
         </Background>
     );

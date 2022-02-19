@@ -1,7 +1,11 @@
 import React, { useEffect } from 'react';
-import { FlatList, View } from 'react-native';
+import { FlatList, Text, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { Background, ListView } from '../../components';
+import {
+    Background,
+    EmptyListComponent,
+    ListView,
+} from '../../components';
 
 import { Container } from './styles';
 import { useBookings } from '../../hooks';
@@ -44,6 +48,9 @@ const Booking = () => {
                                 moveToCodeScanner(item.id_reserva)
                             }
                         />
+                    )}
+                    ListEmptyComponent={() => (
+                        <EmptyListComponent title='Voce não tem Reservas salvas' />
                     )}
                 />
             </Background>
