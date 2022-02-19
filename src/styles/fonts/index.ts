@@ -13,7 +13,7 @@ export const Title = styled(Text)`
 
 export const SubTitleLarge = styled(Text)`
     font-family: 'Poppins_600SemiBold';
-    font-size: 24;
+    font-size: 24px;
 `;
 
 export const SubTitle = styled(Text)`
