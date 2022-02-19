@@ -1,10 +1,16 @@
-import styled from 'styled-components/native';
-import { ImageBackground, ImageBackgroundProps, StyleSheet } from 'react-native';
+import styled from 'styled-components';
+import {
+    ImageBackground,
+    ImageBackgroundProps,
+    StyleSheet,
+} from 'react-native';
 import { primary } from '../../styles/colors';
 import { SubTitle } from '../../styles/fonts';
 import React from 'react';
 
-export const Container: React.FC<ImageBackgroundProps> = styled(ImageBackground)`
+export const Container: React.FC<ImageBackgroundProps> = styled(
+    ImageBackground
+)`
     width: 100%;
     height: 300px;
     align-items: flex-start;

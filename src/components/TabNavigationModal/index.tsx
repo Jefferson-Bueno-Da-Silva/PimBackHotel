@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, TouchableOpacity, Text } from 'react-native';
 import { SingUpRoutes } from '../../interfaces';
-import { fonts } from '../../styles/fonts/';
 
 import { Container, SwitchButtonText } from './styles';
 

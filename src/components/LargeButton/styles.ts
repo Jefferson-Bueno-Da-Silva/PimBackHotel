@@ -7,7 +7,7 @@ import {
     View,
 } from 'react-native';
 import { primary } from '../../styles/colors';
-import { CaptionBold, fonts } from '../../styles/fonts';
+import { CaptionBold } from '../../styles/fonts';
 
 type PrimaryOrSecondaryProps = {
     isSecondary: boolean;

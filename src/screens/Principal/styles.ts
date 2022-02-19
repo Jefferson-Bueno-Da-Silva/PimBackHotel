@@ -3,7 +3,11 @@ import { View, Text } from 'react-native';
 
 import { getStatusBarHeight } from 'react-native-iphone-x-helper';
 import { primary } from '../../styles/colors';
-import { fonts } from '../../styles/fonts';
+import {
+    CaptionRegular,
+    SubTitleLarge,
+    Tiny,
+} from '../../styles/fonts';
 
 export const Container = styled(View)`
     flex: 1;
@@ -25,15 +29,13 @@ export const TextContainer = styled(View)`
     justify-content: center;
 `;
 
-export const Title = styled(Text)`
+export const Title = styled(SubTitleLarge)`
     text-align: center;
-    ${fonts.subTitleLarge}
 `;
 
-export const SubTitle = styled(Text)`
+export const SubTitle = styled(CaptionRegular)`
     text-align: center;
     margin-top: 16px;
-    ${fonts.captionRegular}
 `;
 
 export const ButtonsContainer = styled(View)`
@@ -45,11 +47,10 @@ export const TermsContainer = styled(View)`
     width: 100%;
 `;
 
-export const TermsText = styled(Text)`
+export const TermsText = styled(Tiny)`
     color: ${primary.ChineseBlack};
     text-align: center;
     margin-top: 16px;
-    ${fonts.tiny}
 `;
 
 export const TermsTextLink = styled(Text)`

@@ -2,15 +2,20 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { ScrollView, Text, View } from 'react-native';
 
 // components
-import { HeaderImage, LargeButton } from '../../components';
+import {
+    Background,
+    HeaderImage,
+    LargeButton,
+} from '../../components';
 
 // styles
-import { styles } from './styles';
+import { Container, DetailsContainer, Location } from './styles';
 
 // utils
-import { fonts } from '../../styles/fonts';
+import { CaptionRegular, SubTitle } from '../../styles/fonts';
 import { useNavigation } from '@react-navigation/native';
 import { NavigationRouteStack } from '../../interfaces/Stack/PrivateRoutes.interface';
+import { AbsoluteBottom } from '../../components/AbsoluteBottom';
 
 const DEFAULT = {
     id: 1,
@@ -41,31 +46,45 @@ const Details = ({ route }) => {
     }, [route]);
 
     return (
-        <>
-            <ScrollView style={styles.container}>
-                <HeaderImage imageUri={hotelData.image} title={hotelData.description} />
-                <View style={styles.details}>
-                    <View style={styles.location}>
-                        <Text style={fonts.subTitle}>Preço:</Text>
-                    </View>
+        <Background>
+            <Container>
+                <HeaderImage
+                    imageUri={hotelData.image}
+                    title={hotelData.description}
+                />
 
-                    <Text style={fonts.captionRegular}>
-                        R${parseFloat(hotelData.roomCategory.value).toFixed(2).replace('.', ',')}
-                    </Text>
-                </View>
+                <DetailsContainer>
+                    <Location>
+                        <SubTitle>Preço:</SubTitle>
+                    </Location>
 
-                <View style={styles.details}>
-                    <View style={styles.location}>
-                        <Text style={fonts.subTitle}>Ocupação</Text>
-                    </View>
-                    <Text style={fonts.captionRegular}>{hotelData.howManyPeople} Pessoa</Text>
-                </View>
-            </ScrollView>
+                    <CaptionRegular>
+                        {`R$ ${parseFloat(
+                            hotelData.roomCategory.value
+                        )
+                            .toFixed(2)
+                            .replace('.', ',')}`}
+                    </CaptionRegular>
+                </DetailsContainer>
 
-            <View style={styles.buttonContainer}>
-                <LargeButton onPress={moveToReserves} buttonText='Selecionar Quarto' />
-            </View>
-        </>
+                <DetailsContainer>
+                    <Location>
+                        <SubTitle>Ocupação</SubTitle>
+                    </Location>
+
+                    <CaptionRegular>
+                        {hotelData.howManyPeople} Pessoa
+                    </CaptionRegular>
+                </DetailsContainer>
+            </Container>
+
+            <AbsoluteBottom>
+                <LargeButton
+                    onPress={moveToReserves}
+                    buttonText='Selecionar Quarto'
+                />
+            </AbsoluteBottom>
+        </Background>
     );
 };
 

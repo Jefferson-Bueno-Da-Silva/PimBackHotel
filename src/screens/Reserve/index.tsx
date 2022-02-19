@@ -1,20 +1,28 @@
 import React, { useCallback, useState } from 'react';
-import { View } from 'react-native';
 import { useNavigation } from '@react-navigation/core';
-import { DatePicker, LargeButton, Picker } from '../../components';
+import {
+    Background,
+    DatePicker,
+    LargeButton,
+    Picker,
+} from '../../components';
 
-import { styles } from './styles';
 import { useAuth, useBookings } from '../../hooks';
 import { NavigationRouteStack } from '../../interfaces/Stack/PrivateRoutes.interface';
+import { AbsoluteBottom } from '../../components/AbsoluteBottom';
 
 const Reserve = ({ route }) => {
     const navigation = useNavigation<NavigationRouteStack>();
     const auth = useAuth();
     const booking = useBookings();
 
-    const [occupation, setOccupation] = useState(route?.params.howManyPeople || 0);
+    const [occupation, setOccupation] = useState(
+        route?.params.howManyPeople || 0
+    );
 
-    const [dateEntrada, setDateEntrada] = useState(new Date(Date.now()));
+    const [dateEntrada, setDateEntrada] = useState(
+        new Date(Date.now())
+    );
     const [dateSaida, setDateSaida] = useState(new Date(Date.now()));
 
     const moveToFinished = useCallback(async () => {
@@ -33,7 +41,7 @@ const Reserve = ({ route }) => {
     }, [dateEntrada, dateSaida]);
 
     return (
-        <>
+        <Background>
             <DatePicker
                 dateEntrada={dateEntrada}
                 setDateEntrada={setDateEntrada}
@@ -41,10 +49,13 @@ const Reserve = ({ route }) => {
                 setDateSaida={setDateSaida}
             />
             <Picker occupation={occupation} />
-            <View style={styles.buttonContainer}>
-                <LargeButton onPress={moveToFinished} buttonText='Confirmar' />
-            </View>
-        </>
+            <AbsoluteBottom>
+                <LargeButton
+                    onPress={moveToFinished}
+                    buttonText='Confirmar'
+                />
+            </AbsoluteBottom>
+        </Background>
     );
 };
 

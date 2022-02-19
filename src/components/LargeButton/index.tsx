@@ -5,7 +5,6 @@ import {
     TouchableOpacity,
     View,
 } from 'react-native';
-import { CaptionBold } from '../../styles/fonts';
 
 import {
     ButtonPrimaryOrSecondary,

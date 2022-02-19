@@ -1,5 +1,5 @@
 import React from 'react';
-import { CaptionBold, fonts } from '../../styles/fonts';
+import { CaptionBold } from '../../styles/fonts';
 import { shadow } from '../../styles/shadow';
 import { Container } from './styles';
 

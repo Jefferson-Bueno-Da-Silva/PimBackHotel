@@ -12,3 +12,4 @@ export { default as DragDropModal } from './DragDropModal';
 export { default as SingUp } from './SingUp';
 export { default as TabNavigationModal } from './TabNavigationModal';
 export { default as InputLabel } from './InputLabel';
+export { default as Background } from './background';

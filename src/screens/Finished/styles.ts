@@ -1,23 +1,13 @@
-import { StyleSheet } from "react-native";
-import { fonts } from "../../styles/fonts";
+import styled from 'styled-components';
+import { View } from 'react-native';
+import { SubTitle } from '../../styles/fonts';
 
-export const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 16,
-    alignItems: "center",
-  },
-  title: {
-    ...fonts.title
-  },
-  paragraph: {
-    textAlign: 'center',
-    ...fonts.subTitle
-  },
-  buttonContainer: {
-    position: 'absolute',
-    bottom: 16,
-    left: 0,
-    right: 0,
-  },
-});
+export const ContainerFinished = styled(View)`
+    flex: 1;
+    padding: 16px;
+    align-items: center;
+`;
+
+export const Paragraph = styled(SubTitle)`
+    text-align: center;
+`;

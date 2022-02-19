@@ -1,8 +1,12 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import { TouchableOpacity, TouchableOpacityProps, View } from 'react-native';
+import {
+    TouchableOpacity,
+    TouchableOpacityProps,
+    View,
+} from 'react-native';
 import { primary } from '../../styles/colors';
-import { CaptionSemiBold, fonts } from '../../styles/fonts';
+import { CaptionSemiBold } from '../../styles/fonts';
 
 export const Container = styled(View)`
     height: 100px;
@@ -11,7 +15,9 @@ export const Container = styled(View)`
     border-radius: 5px;
 `;
 
-export const Button: React.FC<TouchableOpacityProps> = styled(TouchableOpacity)`
+export const Button: React.FC<TouchableOpacityProps> = styled(
+    TouchableOpacity
+)`
     flex: 1;
     flex-direction: row;
     align-items: center;

@@ -1,11 +1,15 @@
-import React, { forwardRef, useState, useImperativeHandle } from 'react';
+import React, {
+    forwardRef,
+    useState,
+    useImperativeHandle,
+} from 'react';
 
 // components
 import Input from '../Input';
 
 // Styles
 import { Container, Logo, Top, Bottom, Middle } from './styles';
-import { CaptionBold, CaptionRegular, fonts } from '../../styles/fonts';
+import { CaptionBold, CaptionRegular } from '../../styles/fonts';
 
 // Assets
 import { logo } from '../../assets';
@@ -17,8 +21,13 @@ const Header = ({ value, setValue }) => {
             <Top>
                 <Logo source={logo} />
                 <Middle>
-                    <CaptionBold>Um lugar lindo para viver.</CaptionBold>
-                    <CaptionRegular>Procure o lugar que você deseja passar seu tempo</CaptionRegular>
+                    <CaptionBold>
+                        Um lugar lindo para viver.
+                    </CaptionBold>
+                    <CaptionRegular>
+                        Procure o lugar que você deseja passar seu
+                        tempo
+                    </CaptionRegular>
                 </Middle>
             </Top>
 

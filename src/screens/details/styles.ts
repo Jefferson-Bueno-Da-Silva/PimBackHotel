@@ -1,28 +1,24 @@
-import { StyleSheet } from "react-native";
-import { primary } from "../../styles/colors";
+import { View } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
+import styled from 'styled-components';
+import { primary } from '../../styles/colors';
 
-export const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  location: {
-    width: '50%',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between'
-  },
-  details: {
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    flexDirection: 'row',
-    padding: 16,
-    borderBottomColor: primary.ChineseBlack,
-    borderBottomWidth: 1,
-  },
-  buttonContainer: {
-    position: 'absolute',
-    bottom: 16,
-    left: 0,
-    right: 0,
-  },
-})
+export const Container = styled(ScrollView)`
+    flex: 1;
+`;
+
+export const DetailsContainer = styled(View)`
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    padding: 16px;
+    border-bottom-color: ${primary.ChineseBlack};
+    border-bottom-width: 1px;
+`;
+
+export const Location = styled(View)`
+    width: 50%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+`;

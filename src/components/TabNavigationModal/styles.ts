@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 import { Text, TextProps, View } from 'react-native';
 
 import { primary } from '../../styles/colors';
-import { fonts } from '../../styles/fonts';
+import { CaptionSemiBold } from '../../styles/fonts';
 
 export const Container = styled(View)`
     height: 25px;
@@ -19,10 +19,9 @@ type SwitchButtonTextProps = {
 
 export const SwitchButtonText: React.FC<
     SwitchButtonTextProps & TextProps
-> = styled(Text)`
+> = styled(CaptionSemiBold)`
     color: ${(props) =>
         props.active
             ? primary.ChineseBlack
             : primary.ChineseBlackTransparent};
-    ${fonts.captionSemiBold}
 `;
