@@ -1,10 +1,12 @@
 import React from 'react';
 import {
+    ActivityIndicator,
     GestureResponderEvent,
     Text,
     TouchableOpacity,
     View,
 } from 'react-native';
+import { primary } from '../../styles/colors';
 
 import {
     ButtonPrimaryOrSecondary,
@@ -16,12 +18,14 @@ export type LargeBUttonProps = {
     onPress: (event: GestureResponderEvent) => void;
     buttonText: string;
     secondary?: boolean;
+    loading?: boolean;
 };
 
 const LargeButton = ({
     onPress,
     buttonText = '',
     secondary,
+    loading,
 }: LargeBUttonProps) => {
     return (
         <Container>
@@ -30,9 +34,15 @@ const LargeButton = ({
                 onPress={onPress}
                 activeOpacity={0.8}
             >
-                <ButtonPrimaryOrSecondaryText isSecondary={secondary}>
-                    {buttonText}
-                </ButtonPrimaryOrSecondaryText>
+                {loading ? (
+                    <ActivityIndicator color={primary.White} />
+                ) : (
+                    <ButtonPrimaryOrSecondaryText
+                        isSecondary={secondary}
+                    >
+                        {buttonText}
+                    </ButtonPrimaryOrSecondaryText>
+                )}
             </ButtonPrimaryOrSecondary>
         </Container>
     );

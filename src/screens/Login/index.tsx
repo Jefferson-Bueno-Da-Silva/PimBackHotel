@@ -11,6 +11,7 @@ const Login = () => {
     };
     const [email, setEmailText] = useState(authDefaults.email);
     const [password, setPassword] = useState(authDefaults.password);
+    const [loading, setLoading] = useState(false);
 
     const _onChangeTextEmail = useCallback((text) => {
         setEmailText(text);
@@ -21,13 +22,21 @@ const Login = () => {
     }, []);
 
     const handleLogin = async () => {
-        const data = await auth.signIn({ email, password });
+        setLoading(true);
+        const data = await auth
+            .signIn({ email, password })
+            .catch(() => setLoading(false));
         if (data) auth.setSessionFromLogin(data);
     };
 
     return (
         <>
-            <InputLabel label='Email' placeholder='Email' value={email} onChangeText={_onChangeTextEmail} />
+            <InputLabel
+                label='Email'
+                placeholder='Email'
+                value={email}
+                onChangeText={_onChangeTextEmail}
+            />
             <InputLabel
                 label='senha'
                 placeholder='Senha'
@@ -35,7 +44,12 @@ const Login = () => {
                 value={password}
                 onChangeText={_onChangeTextPassword}
             />
-            <LargeButton secondary={!(!!email && !!password)} buttonText='Login' onPress={handleLogin} />
+            <LargeButton
+                secondary={!(!!email && !!password)}
+                buttonText='Login'
+                onPress={handleLogin}
+                loading={loading}
+            />
         </>
     );
 };

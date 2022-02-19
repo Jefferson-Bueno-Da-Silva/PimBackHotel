@@ -1,28 +1,29 @@
 import React from 'react';
 import { IAuth } from '../../interfaces';
 import api from '../../services/api';
-import { signIn, register, LoginRequest, LoginResponse, RegisterRequest } from '../../services/api/auth';
+import {
+    signIn,
+    register,
+    LoginRequest,
+    LoginResponse,
+    RegisterRequest,
+} from '../../services/api/auth';
 import { AuthActions, AuthState } from '../reducers/AuthReducer';
 
 class Auth implements IAuth {
-    constructor(public authState: AuthState, private authDispatch: React.Dispatch<AuthActions>) {}
+    constructor(
+        public authState: AuthState,
+        private authDispatch: React.Dispatch<AuthActions>
+    ) {}
 
     async signIn(loginData: LoginRequest): Promise<LoginResponse> {
-        return signIn(loginData)
-            .then((response) => response.data)
-            .catch((error) => {
-                console.error(error.message);
-                return null;
-            });
+        return (await signIn(loginData)).data;
     }
 
-    async register(registerData: RegisterRequest): Promise<LoginResponse> {
-        return register(registerData)
-            .then((response) => response.data)
-            .catch((error) => {
-                console.error(error);
-                return null;
-            });
+    async register(
+        registerData: RegisterRequest
+    ): Promise<LoginResponse> {
+        return (await register(registerData)).data;
     }
 
     isLogged(): boolean {
@@ -38,7 +39,9 @@ class Auth implements IAuth {
 
     setAxiosToken(token: string): void {
         if (token) {
-            api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+            api.defaults.headers.common[
+                'Authorization'
+            ] = `Bearer ${token}`;
         } else {
             api.defaults.headers.common['Authorization'] = null;
         }
